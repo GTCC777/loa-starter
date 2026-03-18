@@ -1,0 +1,50 @@
+# OS files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Editor directories and files
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# Node
+node_modules/
+
+# Script outputs
+scripts/link-validation-report.json
+
+# Logs
+*.log
+npm-debug.log*
+
+# Images (hosted externally)
+all-images/
+images/
+
+# Mireveals (in-progress data, not ready for tracking)
+mireveals/
+.obsidian/
+.blotter/
+
+# Loa framework — local-only / ephemeral files
+.mivaulty/
+.run/
+.claude/settings.local.json
+.claude/cache/
+
+# Beads — track portable format, ignore local database
+.beads/beads.db
+.beads/last-touched
+
+# Loa state — track development history, exclude ephemeral files
+grimoires/loa/NOTES.md.tmp
+grimoires/loa/analytics/
+grimoires/loa/a2a/trajectory/
+grimoires/loa/memory/

@@ -1,0 +1,25 @@
+---
+id: 3282
+name: "Native American"
+type: grail
+category: ancestor
+description: "Ledger art with Bear Ears Monument and elk tooth dress"
+---
+
+# Native American
+
+![Native American](https://gateway.irys.xyz/7rpvwFYcB5t7S1HziaBAr4RgfAFpqCwCYbFUbkFqpbAq/native american.png)
+
+> **Grail #3282** · Ancestor · [Browse all Grails →](../browse/grails.md)
+
+## Cultural Context
+
+Ledger art originated when Plains Indian artists drew on the lined pages of accounting ledgers in the late 19th century, continuing pictographic traditions on the materials available during reservation confinement. Bear Ears National Monument is in southeastern Utah, sacred to several Native American tribes including the Navajo, Hopi, and Ute. Bear Lodge is the Lakota name for the formation known as Devils Tower in Wyoming. Elk tooth dresses are traditional ceremonial garments among Plains tribes — elk teeth were highly valued and a single dress could require hundreds. "A Cyborg Manifesto" (1985) by Donna Haraway is a foundational text on the boundaries between human, animal, and machine.
+
+## Visual Elements
+
+Native American ledger-inspired art. Bear Ears National Monument in the foreground. Bear Lodge in the background. Wearing an elk tooth dress. Wearing a hat from "A Cyborg Manifesto."
+
+## Justification
+
+Ancestors are a load-bearing trait in the Mibera system — each of the 10,000 Miberas inherits an ancestor as their cultural lineage. The ancestor grails represent each lineage as its own identity.

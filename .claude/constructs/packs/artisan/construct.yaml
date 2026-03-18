@@ -1,0 +1,98 @@
+schema_version: 3
+name: Artisan
+slug: artisan
+version: 1.0.0
+description: "Turns 'this feels off' into an engineering specification. Decomposes interfaces into structure, motion, and material — oklch deltas, spring constants, spacing rhythms. Craft precedes judgment."
+short_description: "Taste made measurable"
+domain:
+  - design
+author: 0xHoneyJar
+license: MIT
+visibility: public
+skills:
+  - slug: analyzing-feedback
+    path: skills/analyzing-feedback
+  - slug: animating-motion
+    path: skills/animating-motion
+  - slug: applying-behavior
+    path: skills/applying-behavior
+  - slug: crafting-physics
+    path: skills/crafting-physics
+  - slug: decomposing-feel
+    path: skills/decomposing-feel
+  - slug: distilling-components
+    path: skills/distilling-components
+  - slug: envisioning-direction
+    path: skills/envisioning-direction
+  - slug: inscribing-taste
+    path: skills/inscribing-taste
+  - slug: iterating-visuals
+    path: skills/iterating-visuals
+  - slug: styling-material
+    path: skills/styling-material
+  - slug: surveying-patterns
+    path: skills/surveying-patterns
+  - slug: synthesizing-taste
+    path: skills/synthesizing-taste
+  - slug: rams
+    path: skills/rams
+  - slug: next-best-practices
+    path: skills/next-best-practices
+repository:
+  url: https://github.com/0xHoneyJar/construct-artisan.git
+  homepage: https://constructs.network/constructs/artisan
+events:
+  emits:
+    - type: forge.artisan.taste_inscribed
+      description: Emitted when taste tokens are applied to components
+      data_schema:
+        components: array
+        taste_source: string
+    - type: forge.artisan.pattern_surveyed
+      description: Emitted when a design pattern survey is completed
+      data_schema:
+        patterns_found: number
+        report_path: string
+  consumes:
+    - event: forge.observer.canvas_created
+      description: "Observer canvases inform taste token decisions"
+type: skill-pack
+composition_paths:
+  reads:
+    - grimoires/laboratory/canvases/
+  writes:
+    - grimoires/artisan/
+compose_with:
+  - slug: observer
+    relationship: "Observer canvases provide user truth that informs Artisan's taste synthesis and inscription"
+governs:
+  - slug: the-easel
+    relationship: "Taste token governance — Easel TDRs must conform to Artisan-inscribed tokens"
+  - slug: showcase
+    relationship: "Taste token governance — Showcase renders must follow Artisan taste tokens"
+  - slug: the-arcade
+    relationship: "Taste token governance — Arcade UI must follow Artisan taste tokens"
+  - slug: the-mint
+    relationship: "Taste token governance — Mint output must follow Artisan taste tokens"
+  - slug: the-speakers
+    relationship: "Taste token governance — Speakers sonic identity must follow Artisan taste tokens"
+identity:
+  persona: identity/persona.yaml
+  expertise: identity/expertise.yaml
+capabilities:
+  model_tier: sonnet
+  danger_level: safe
+  effort_hint: medium
+  downgrade_allowed: true
+  execution_hint: parallel
+  requires:
+    tool_calling: true
+    thinking_traces: false
+    vision: false
+hooks:
+  post_install: scripts/install.sh
+quick_start:
+  command: /synthesize
+  description: "Show me what your project tastes like — extract the visual DNA into tokens"
+  follow_up: /inscribe
+  follow_up_description: "Then apply what you've discovered to components"

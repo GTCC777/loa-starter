@@ -1,0 +1,25 @@
+---
+id: 9639
+name: "Leo"
+type: grail
+category: zodiac
+description: "Lion skull with heart in hand — Leo rules the heart"
+---
+
+# Leo
+
+![Leo](https://gateway.irys.xyz/7rpvwFYcB5t7S1HziaBAr4RgfAFpqCwCYbFUbkFqpbAq/leo.PNG)
+
+> **Grail #9639** · Zodiac · [Browse all Grails →](../browse/grails.md)
+
+## Cultural Context
+
+Leo is a fire sign ruled by the Sun, symbolized by the lion. In astrology, Leo governs the heart. The Jahangir coin references the Mughal emperor Jahangir (1569–1627), who issued zodiac coins featuring a lion for Leo. Cancer and Leo share the same Bicycle Day blotter art as their background — Cancer takes the moon side, Leo takes the sun side.
+
+## Visual Elements
+
+Lion skull. Jahangir coin earring. Heart held in hand — Leo rules the heart. Sunflowers in the foreground. Albert Hofmann Bicycle Day blotter art in the background, sun side.
+
+## Justification
+
+Every Mibera carries three zodiac placements (sun, moon, rising) as modifier signals in the identity hierarchy. The 12 zodiac grails each represent one sign as its own identity.

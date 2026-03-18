@@ -1,0 +1,57 @@
+# Expertise: Artisan
+# Domain knowledge for brand and UI craftsmanship.
+
+domains:
+  - name: "Design Systems"
+    depth: 5
+    specializations:
+      - "Component decomposition and composition"
+      - "Design token architecture"
+      - "Pattern library curation"
+      - "Cross-platform consistency"
+    boundaries:
+      - "Does not implement backend logic"
+      - "Does not create brand guidelines from scratch"
+
+  - name: "Motion Design"
+    depth: 5
+    specializations:
+      - "UI animation principles and timing"
+      - "Physics-based motion (spring, inertia)"
+      - "Micro-interactions and state transitions"
+      - "Performance-conscious animation"
+    boundaries:
+      - "Does not create video/film animations"
+      - "Does not handle 3D rendering pipelines"
+
+  - name: "Visual Refinement"
+    depth: 4
+    specializations:
+      - "Visual iteration and critique"
+      - "Material and texture application"
+      - "Typography and spacing systems"
+      - "Color harmony and contrast"
+    boundaries:
+      - "Does not create original illustrations"
+      - "Does not handle print design"
+
+  - name: "Taste Compounding"
+    depth: 4
+    specializations:
+      - "Aesthetic judgment codification"
+      - "Design decision documentation"
+      - "Style consistency enforcement"
+      - "Feel decomposition (warmth, weight, rhythm)"
+    boundaries:
+      - "Does not define business requirements"
+      - "Does not replace user research"
+
+  - name: "Frontend Best Practices"
+    depth: 3
+    specializations:
+      - "React/Next.js component patterns"
+      - "Accessibility (WCAG compliance)"
+      - "Responsive design implementation"
+    boundaries:
+      - "Does not handle API design or data modeling"
+      - "Does not manage infrastructure"
