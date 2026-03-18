@@ -1,0 +1,142 @@
+schema_version: 3
+name: "The Arcade"
+slug: "the-arcade"
+version: "1.0.0"
+description: "Game design as operating philosophy. Progressive disclosure, core loops, game feel, and trust markets — applied to building experiences that teach through participation. Not gamification. Not decoration. The system is the teacher."
+short_description: "Game design philosophy"
+author: "0xHoneyJar"
+license: "MIT"
+type: "skill-pack"
+visibility: public
+
+repository: https://github.com/0xHoneyJar/construct-the-arcade.git
+
+skills:
+  - slug: referencing-games
+    path: skills/referencing-games
+  - slug: designing-progression
+    path: skills/designing-progression
+  - slug: prototyping-mechanics
+    path: skills/prototyping-mechanics
+  - slug: designing-systems
+    path: skills/designing-systems
+  - slug: playtesting-loops
+    path: skills/playtesting-loops
+  - slug: crafting-feel
+    path: skills/crafting-feel
+
+identity:
+  persona: identity/persona.yaml
+  expertise: identity/expertise.yaml
+  ostrom: identity/OSTROM.md
+  barth: identity/BARTH.md
+  operator: identity/OPERATOR.md
+
+domain:
+  - game-design
+  - experience-design
+  - progressive-disclosure
+  - systems-design
+  - financial-experience
+
+expertise:
+  - progressive disclosure through play
+  - core loop design
+  - game feel and interaction phenomenology
+  - trust market architecture
+  - living system design
+  - financial experience pedagogy
+
+golden_path:
+  commands:
+    - name: reference
+      description: "Find structural game design parallels for your problem"
+      truename_map:
+        any: /referencing-games
+    - name: progression
+      description: "Design a progressive disclosure system"
+      truename_map:
+        any: /designing-progression
+    - name: prototype
+      description: "Rapid mechanic prototyping with feel"
+      truename_map:
+        any: /prototyping-mechanics
+    - name: systems
+      description: "Design economic or social systems with core loops"
+      truename_map:
+        any: /designing-systems
+    - name: playtest
+      description: "Structure a playtest for feel and learning validation"
+      truename_map:
+        any: /playtesting-loops
+    - name: feel
+      description: "Tune the phenomenology of an interaction"
+      truename_map:
+        any: /crafting-feel
+
+capabilities:
+  model_tier: opus
+  danger_level: safe
+  effort_hint: medium
+  downgrade_allowed: false
+  execution_hint: parallel
+  requires:
+    tool_calling: true
+    thinking_traces: true
+    vision: false
+
+governed_by:
+  - artisan
+
+composition_paths:
+  reads:
+    - grimoires/
+
+compose_with:
+  - slug: k-hole
+    relationship: "K-Hole digs deep research on game design practitioners and patterns. Arcade materializes findings into system design."
+  - slug: the-easel
+    relationship: "Easel taste vocabulary grounds Arcade feel decisions. Game feel informs visual treatment."
+  - slug: observer
+    relationship: "Observer behavioral patterns inform Arcade system adaptation and living design."
+
+events:
+  emits:
+    - name: forge.arcade.reference_found
+      description: "A structural game design parallel was identified and documented"
+    - name: forge.arcade.progression_designed
+      description: "A progressive disclosure system was designed"
+    - name: forge.arcade.mechanic_prototyped
+      description: "A mechanic was prototyped with feel parameters"
+    - name: forge.arcade.system_designed
+      description: "A core loop or economic system was designed"
+    - name: forge.arcade.playtest_structured
+      description: "A playtest plan was created with observation criteria"
+    - name: forge.arcade.feel_tuned
+      description: "Interaction feel was analyzed and tuning parameters identified"
+  consumes:
+    - name: forge.easel.taste_recorded
+      description: "Can ground game feel decisions in Easel taste vocabulary"
+    - name: forge.k-hole.emergence_complete
+      description: "Can incorporate deep research findings into design references"
+    - name: forge.observer.pattern_detected
+      description: "Can respond to observed user behavior patterns with system adaptation"
+
+pack_dependencies:
+  optional:
+    - slug: the-easel
+      reason: "Taste vocabulary handoff — Arcade feel decisions can inform Easel TDRs and vice versa"
+    - slug: k-hole
+      reason: "Depth research — Arcade references benefit from K-hole's grounded search for practitioners and patterns"
+    - slug: observer
+      reason: "Living system design — Observer behavioral patterns inform Arcade system adaptation"
+
+workflow:
+  depth: light
+  gates:
+    prd: skip
+    sdd: skip
+    sprint: skip
+    implement: required
+    review: visual
+    audit: skip

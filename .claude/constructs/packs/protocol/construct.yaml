@@ -1,0 +1,217 @@
+# construct.yaml — Protocol construct manifest
+# The verifier — grounds dApp behavior in on-chain reality
+# Validate: yq eval '.' construct.yaml
+
+schema_version: 3
+
+name: Protocol
+slug: protocol
+version: 2.0.0
+description: "Reads the chain so your users don't hit reverts. Verifies that what your frontend shows matches what the contract enforces — prices, allowances, proxy implementations, the whole wallet boundary. If cast can read it, Protocol already checked it."
+short_description: "Verify the chain, not the frontend"
+author: 0xHoneyJar
+license: MIT
+type: skill-pack
+visibility: public
+tier: L2
+
+# --- Skills ---
+# Two complementary groups: web3-verify (on-chain debugging) + dapp-qa (quality pipeline)
+skills:
+  # Web3 Verify — On-chain verification & debugging
+  - slug: contract-verify
+    path: skills/contract-verify
+  - slug: tx-forensics
+    path: skills/tx-forensics
+  - slug: abi-audit
+    path: skills/abi-audit
+  - slug: proxy-inspect
+    path: skills/proxy-inspect
+  - slug: simulate-flow
+    path: skills/simulate-flow
+
+  # dApp QA — Quality assurance & testing
+  - slug: dapp-lint
+    path: skills/dapp-lint
+  - slug: dapp-typecheck
+    path: skills/dapp-typecheck
+  - slug: dapp-test
+    path: skills/dapp-test
+  - slug: dapp-e2e
+    path: skills/dapp-e2e
+  - slug: gpt-contract-review
+    path: skills/gpt-contract-review
+
+commands:
+  - name: verify
+    path: commands/verify.md
+  - name: debug-tx
+    path: commands/debug-tx.md
+
+repository:
+  url: https://github.com/0xHoneyJar/construct-protocol.git
+  homepage: https://constructs.network/constructs/protocol
+
+events:
+  emits:
+    - type: forge.protocol.verification_complete
+      description: Emitted when a contract verification scan completes
+      data_schema:
+        contract_address: string
+        chain_id: number
+        discrepancies_found: number
+        report_path: string
+    - type: forge.protocol.tx_decoded
+      description: Emitted when a transaction is fully decoded and analyzed
+      data_schema:
+        tx_hash: string
+        status: string
+        revert_reason: string
+    - type: forge.protocol.qa_report
+      description: Emitted when a QA pipeline run completes
+      data_schema:
+        lint_issues: number
+        type_errors: number
+        test_results: object
+  consumes:
+    - event: forge.observer.gap_filed
+      delivery: at-least-once
+      idempotency: deduplicate-by-gap-id
+    - event: forge.artisan.taste_inscribed
+      delivery: at-least-once
+
+composition_paths:
+  writes:
+    - "grimoires/protocol/"
+compose_with:
+  - observer
+  - artisan
+pack_dependencies:
+  - slug: observer
+  - slug: artisan
+
+capabilities:
+  model_tier: opus
+  danger_level: critical
+  effort_hint: large
+  downgrade_allowed: false
+  execution_hint: sequential
+  requires:
+    tool_calling: true
+    thinking_traces: true
+    vision: false
+
+identity:
+  persona: identity/persona.yaml
+  expertise: identity/expertise.yaml
+
+hooks:
+  post_install: scripts/install.sh
+
+quick_start:
+  command: /verify
+  description: verify your dApp's frontend against on-chain contract reality
+
+# --- Routing ---
+domain:
+  - web3
+  - dapp
+  - smart-contracts
+  - verification
+  - blockchain
+  - defi
+  - evm
+  - testing
+
+expertise:
+  - contract verification
+  - transaction debugging
+  - ABI compliance
+  - proxy inspection
+  - dapp testing
+  - web3 linting
+  - wagmi
+  - viem
+  - foundry
+  - cast
+  - ethers
+  - on-chain
+  - revert decoding
+  - BigInt safety
+
+golden_path:
+  commands:
+    - name: "/verify"
+      description: "Verify frontend against on-chain reality"
+      truename_map:
+        no_config: "/contract-verify"
+        config_present: "/contract-verify"
+        discrepancies_found: "/simulate-flow"
+        post_fix: "/dapp-test"
+    - name: "/debug"
+      description: "Debug a failing transaction"
+      truename_map:
+        tx_hash_provided: "/tx-forensics"
+        proxy_suspected: "/proxy-inspect"
+        abi_drift: "/abi-audit"
+    - name: "/qa"
+      description: "Run the full QA pipeline"
+      truename_map:
+        no_tests: "/dapp-test"
+        tests_exist: "/dapp-lint"
+        lint_clean: "/dapp-typecheck"
+        types_clean: "/dapp-e2e"
+  detect_state: scripts/detect-state.sh
+
+workflow:
+  depth: standard
+  gates:
+    prd: skip
+    sdd: skip
+    sprint: condense
+    implement: required
+    review: textual
+    audit: lightweight
+
+methodology:
+  references:
+    - "Trail of Bits Smart Contract Testing Handbook"
+    - "OpenZeppelin Proxy Patterns"
+    - "Foundry Book — cast reference"
+    - "wagmi Testing Documentation"
+  principles:
+    - "Ground in on-chain reality — never hardcode contract parameters"
+    - "Simulate before submit — cast call every user flow before real users hit it"
+    - "Decode the revert — most 'transaction failed' UX is solvable"
+    - "Check the proxy — most production contracts are proxies"
+    - "BigInt is not a number — wei arithmetic is the #1 dApp frontend bug"
+    - "Cross-model review catches different bug classes"
+
+runtime_requirements:
+  external_tools:
+    - name: foundry
+      check: "cast --version"
+      install: "curl -L https://foundry.paradigm.xyz | bash && foundryup"
+      required: true
+    - name: node
+      check: "node --version"
+      required: true
+    - name: agent-browser
+      check: "agent-browser --version 2>/dev/null"
+      install: "See https://github.com/ArcadeAI/agent-browser"
+      required: false
+      description: "Enables RPC interception in dapp-e2e (Phase 3-AB + Phase 5.5 wallet edge case testing)"
+
+credentials:
+  - name: RPC_URL
+    description: "EVM RPC endpoint for chain reads (Alchemy, Infura, public)"
+    sensitive: false
+    optional: false
+  - name: ETHERSCAN_API_KEY
+    description: "Block explorer API key for ABI fetching and source verification"
+    sensitive: true
+    optional: true
+  - name: OPENAI_API_KEY
+    description: "OpenAI API key for cross-model contract review"
+    sensitive: true
+    optional: true

@@ -1,0 +1,96 @@
+name: grounding-announcements
+slug: grounding-announcements
+version: 1.0.0
+description: >
+  Convert product changes, feature removals, and releases into grounded community
+  announcements. Reads voice.md for tone and principles.md for constraints. Researches
+  git history via chronicling-changes or direct git queries. Produces copy that never
+  over-promises, forward-looks, or hypes. Use when drafting Discord announcements,
+  changelogs, or community updates about what shipped, changed, or was removed.
+
+model: native
+color: amber
+
+effort_hint: medium
+danger_level: safe
+categories:
+  - communication
+
+triggers:
+  - "/announce"
+  - "draft announcement"
+  - "write community update"
+  - "announce changes"
+  - "draft discord message"
+  - "communicate removal"
+  - "sunset announcement"
+  - "changelog announcement"
+  - "product update post"
+
+negative_triggers:
+  - "translate for executives"
+  - "investor update"
+  - "board presentation"
+
+examples:
+  - context: "User removing features from the product"
+    user_says: "Announce that we're removing vault and lock from the arcade"
+    agent_action: "Load voice.md + principles.md, research git history for vault/lock, draft grounded announcement, validate against principles"
+
+  - context: "User shipped a new feature"
+    user_says: "Write a Discord update about the new animations we merged"
+    agent_action: "Load voice profile, check PR/commits for what shipped, describe only what exists in code, draft and validate"
+
+  - context: "User making structural changes"
+    user_says: "We moved incinerator from guts to play, draft the message"
+    agent_action: "Load voice, research the change in git diff, describe incinerator from code, explain recategorization"
+
+domain_hints:
+  - announcement
+  - discord
+  - community
+  - changelog
+  - update
+  - removal
+  - sunset
+  - shipping
+
+entry: SKILL.md
+
+capabilities:
+  model_tier: sonnet
+  danger_level: safe
+  effort_hint: medium
+  downgrade_allowed: true
+  execution_hint: sequential
+  requires:
+    native_runtime: true
+    tool_calling: true
+
+allowed-tools:
+  - Read
+  - Glob
+  - Grep
+  - Bash
+  - Task
+  - Edit
+
+dependencies:
+  - artifact: "contexts/voice/voice.md"
+    required: false
+    description: "Voice profile for tone, vocabulary, and register. Uses defaults if absent."
+  - artifact: "contexts/voice/principles.md"
+    required: false
+    description: "Communication principles — non-negotiable constraints. Uses defaults if absent."
+  - artifact: ".git"
+    required: true
+    description: "Git repository for history research"
+
+outputs:
+  - path: "grimoires/herald/announcements/{date}-{scope}.md"
+    description: "Archived announcement with metadata and evidence trail"
+
+events:
+  emits:
+    - name: "forge.herald.announcement_grounded"
+      description: "Announcement drafted from code reality with evidence citations"

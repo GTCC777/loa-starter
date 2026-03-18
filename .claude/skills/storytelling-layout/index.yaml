@@ -1,0 +1,18 @@
+slug: storytelling-layout
+name: Storytelling Layout
+description: |
+  Use this skill IF user needs to decide layout, narrative hierarchy, or
+  comparative framing for landing page cards and sections. Covers: section
+  ordering, card sizing, layout variance, fused vs sidecar vs strip patterns,
+  and the Scale → Authority → Commitment narrative flow.
+version: 1.0.0
+triggers:
+  - "/showcase-layout"
+  - "layout for landing page"
+  - "how should I arrange these cards"
+  - "narrative hierarchy"
+  - "section ordering"
+capabilities:
+  model_tier: sonnet
+  danger_level: low
+  effort_hint: medium

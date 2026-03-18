@@ -1,0 +1,111 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://loa.dev/schemas/herald/construct.schema.json",
+  "title": "Herald Construct Manifest",
+  "description": "Schema for Herald construct.yaml — validates the construct manifest structure",
+  "type": "object",
+  "required": ["schema_version", "name", "slug", "version"],
+  "properties": {
+    "schema_version": {
+      "type": "integer",
+      "minimum": 3
+    },
+    "name": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 100
+    },
+    "slug": {
+      "type": "string",
+      "pattern": "^[a-z0-9][a-z0-9-]*[a-z0-9]$"
+    },
+    "version": {
+      "type": "string",
+      "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+(-[a-zA-Z0-9.]+)?$"
+    },
+    "description": {
+      "type": "string",
+      "minLength": 10,
+      "maxLength": 500
+    },
+    "author": {
+      "type": "string"
+    },
+    "license": {
+      "type": "string"
+    },
+    "skills": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["slug", "path"],
+        "properties": {
+          "slug": { "type": "string", "pattern": "^[a-z][a-z0-9-]+$" },
+          "path": { "type": "string" }
+        },
+        "additionalProperties": false
+      }
+    },
+    "identity": {
+      "type": "object",
+      "properties": {
+        "persona": { "type": "string" },
+        "expertise": { "type": "string" }
+      },
+      "additionalProperties": false
+    },
+    "events": {
+      "type": "object",
+      "properties": {
+        "emits": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["type", "description"],
+            "properties": {
+              "type": { "type": "string" },
+              "description": { "type": "string" },
+              "data_schema": { "type": "object" }
+            }
+          }
+        },
+        "consumes": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["event"],
+            "properties": {
+              "event": { "type": "string" }
+            }
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "hooks": {
+      "type": "object",
+      "properties": {
+        "post_install": { "type": "string" }
+      },
+      "additionalProperties": false
+    },
+    "quick_start": {
+      "type": "object",
+      "properties": {
+        "command": { "type": "string" },
+        "description": { "type": "string" }
+      },
+      "additionalProperties": false
+    },
+    "repository": {
+      "type": "object",
+      "properties": {
+        "url": { "type": "string", "format": "uri" },
+        "homepage": { "type": "string", "format": "uri" }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

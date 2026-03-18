@@ -1,0 +1,17 @@
+name: generating-followups
+slug: generating-followups
+version: 1.0.0
+description: Generate Mom Test follow-up messages anchored on user's exact words from canvases.
+entry: SKILL.md
+triggers:
+  - /follow-up
+allowed-tools:
+  - Read
+  - Write
+  - Glob
+  - Grep
+capabilities:
+  model_tier: standard
+  danger_level: safe
+  effort_hint: light
+  downgrade_allowed: true

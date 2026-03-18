@@ -1,0 +1,23 @@
+slug: capturing-results
+name: "Capturing Results"
+description: |
+  Use this skill IF user needs to annotate generation results with
+  vocabulary terms and quality assessments.
+
+triggers:
+  - "capture results"
+  - "annotate visuals"
+  - "rate generations"
+  - "assess quality"
+
+capabilities:
+  model_tier: sonnet
+  danger_level: safe
+  effort_hint: medium
+  downgrade_allowed: true
+  execution_hint: sequential
+  requires:
+    native_runtime: false
+    tool_calling: false
+    thinking_traces: false
+    vision: true

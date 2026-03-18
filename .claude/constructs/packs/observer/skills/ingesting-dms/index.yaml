@@ -1,0 +1,19 @@
+name: ingesting-dms
+slug: ingesting-dms
+version: 1.0.0
+description: Single-user conversation import that creates an enriched canvas scaffold from a DM export.
+entry: SKILL.md
+triggers:
+  - /ingest-dm
+allowed-tools:
+  - Read
+  - Write
+  - Glob
+  - Grep
+  - Edit
+  - Bash
+capabilities:
+  model_tier: standard
+  danger_level: safe
+  effort_hint: medium
+  downgrade_allowed: false

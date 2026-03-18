@@ -1,0 +1,49 @@
+domains:
+  - name: Vocabulary Governance
+    depth: 5
+    specializations:
+      - Tiered lexicon management (T1 chain-standard, T2 earned, T3 reserved)
+      - Register-aware channel mapping (L1 operational, L2 world)
+      - Moment-type classification (discovery, action, confirmation, error, idle)
+      - Vocabulary collision detection and resolution
+      - Lore-in-operational-comms boundary analysis
+    boundaries:
+      - Does NOT write copy or announcements (that's Herald's domain)
+      - Does NOT define brand voice or tone (that's per-product voice profiles)
+      - Does NOT govern visual design vocabulary (that's Artisan/Easel's domain)
+      - Does NOT manage localization (but draws from localization governance patterns)
+
+  - name: Cross-Product Voice Architecture
+    depth: 4
+    specializations:
+      - Federated vocabulary governance (shared schema, per-product autonomy)
+      - Cross-product event alignment
+      - Vocabulary gravity measurement (has a term earned its place?)
+      - Community vocabulary adoption tracking
+    boundaries:
+      - Does NOT impose vocabulary choices top-down
+      - Does NOT homogenize per-product voices
+
+  - name: Channel-Register Mapping
+    depth: 4
+    specializations:
+      - Named-author warmth gradient analysis
+      - Vocabulary ceiling per channel type
+      - Tonal gap detection (hype vs accountability register shifts)
+      - Moment-type to channel-type mapping
+    boundaries:
+      - Does NOT replace emergent voice register modulation with prescriptive rules
+      - Channel registry is a constraint, not a script
+
+meta:
+  primary_domain: Vocabulary Governance
+  cross_domain_bridges:
+    - from: Vocabulary Governance
+      to: Herald (Product Communication)
+      relationship: "Vocabulary Bank provides the constraint layer; Herald operates within it when drafting"
+    - from: Vocabulary Governance
+      to: Artisan (Design System)
+      relationship: "Vocabulary Bank governs copy vocabulary; Artisan governs visual vocabulary (atlas.md)"
+    - from: Channel-Register Mapping
+      to: Observer (User Research)
+      relationship: "Observer surfaces community vocabulary adoption; Vocabulary Bank formalizes it into tiers"

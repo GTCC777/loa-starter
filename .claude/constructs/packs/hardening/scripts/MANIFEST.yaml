@@ -1,0 +1,21 @@
+# scripts/MANIFEST.yaml — Machine-readable tool declarations
+#
+# Lets agents discover what scripts are available, how to invoke them,
+# and what to expect back — without reading source code.
+
+scripts:
+
+  - name: validate-skills
+    description: "Validate all skill index.yaml files have required fields and capabilities stanza"
+    entry: validate-skills.sh
+    runtime: bash
+    args: []
+    output:
+      format: text
+      fields:
+        checked: "integer — number of user-facing skills checked"
+        errors: "integer — number of validation errors found"
+        result: "string — PASSED or FAILED with error count"
+    side_effects: []
+    credentials: []
+    danger_level: safe

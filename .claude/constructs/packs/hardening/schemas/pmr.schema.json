@@ -1,0 +1,118 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://loa.dev/schemas/pmr.schema.json",
+  "title": "Postmortem Record (PMR) Frontmatter",
+  "description": "Schema for PMR frontmatter metadata — validates the YAML frontmatter of Postmortem Record documents.",
+  "type": "object",
+  "required": ["type", "schema_version", "id", "title", "severity", "status", "detection_method", "created", "updated"],
+  "properties": {
+    "type": {
+      "type": "string",
+      "const": "pmr_template",
+      "description": "Document type identifier"
+    },
+    "schema_version": {
+      "type": "integer",
+      "minimum": 1,
+      "description": "PMR schema version"
+    },
+    "id": {
+      "type": "string",
+      "pattern": "^PMR-[0-9]{4}-[0-9]{3}$",
+      "description": "PMR identifier (e.g., PMR-2026-001)"
+    },
+    "title": {
+      "type": "string",
+      "minLength": 5,
+      "maxLength": 200,
+      "description": "Human-readable incident title"
+    },
+    "severity": {
+      "type": "string",
+      "enum": ["CRITICAL", "HIGH", "MEDIUM", "LOW"],
+      "description": "Incident severity classification"
+    },
+    "status": {
+      "type": "string",
+      "enum": ["draft", "active", "resolved", "archived"],
+      "description": "PMR lifecycle status"
+    },
+    "detection_method": {
+      "type": "string",
+      "enum": ["user-report", "monitoring", "test-failure", "code-review", "ci-failure", "manual-discovery"],
+      "description": "How the incident was detected"
+    },
+    "created": {
+      "type": "string",
+      "format": "date-time",
+      "description": "ISO 8601 creation timestamp"
+    },
+    "updated": {
+      "type": "string",
+      "format": "date-time",
+      "description": "ISO 8601 last update timestamp"
+    },
+    "time_to_detection": {
+      "type": "string",
+      "description": "Human-readable duration from introduction to detection"
+    },
+    "time_to_fix": {
+      "type": "string",
+      "description": "Human-readable duration from detection to fix"
+    },
+    "financial_impact": {
+      "type": "string",
+      "description": "Quantified financial impact where possible"
+    },
+    "users_affected": {
+      "type": "string",
+      "description": "Count or description of affected users"
+    },
+    "provenance_sources": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": ["git", "github", "discord", "sentry", "manual"]
+      },
+      "description": "Data sources used to build this PMR — indicates evidence completeness"
+    },
+    "root_cause_category": {
+      "type": "string",
+      "enum": [
+        "data-format-mismatch",
+        "type-coercion-failure",
+        "missing-validation",
+        "stale-assumption",
+        "boundary-crossing",
+        "infrastructure-dependency",
+        "missing-error-handling",
+        "configuration-drift"
+      ],
+      "description": "Primary root cause category from taxonomy"
+    },
+    "root_cause_subcategory": {
+      "type": "string",
+      "description": "Specific subcategory within root cause"
+    },
+    "root_cause_trigger": {
+      "type": "string",
+      "description": "What specific action introduced the bug"
+    },
+    "contributing_factors": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Additional root cause categories that contributed"
+    },
+    "hardening_action_status": {
+      "type": "string",
+      "enum": ["proposed", "accepted", "implemented", "verified", "regressed"],
+      "description": "Lifecycle status of associated hardening actions"
+    },
+    "hardening_action_priority": {
+      "type": "string",
+      "enum": ["CRITICAL", "HIGH", "MEDIUM", "LOW"],
+      "description": "Priority of associated hardening actions"
+    }
+  },
+  "additionalProperties": false
+}

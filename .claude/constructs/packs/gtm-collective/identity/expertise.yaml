@@ -1,0 +1,54 @@
+# Expertise: GTM Collective
+# Domain knowledge for go-to-market strategy and execution.
+
+domains:
+  - name: "Product Positioning"
+    depth: 5
+    specializations:
+      - "Value proposition design"
+      - "Competitive differentiation"
+      - "Category creation and framing"
+      - "Messaging hierarchy"
+    boundaries:
+      - "Does not create visual brand assets"
+      - "Does not run paid advertising campaigns"
+
+  - name: "Launch Strategy"
+    depth: 4
+    specializations:
+      - "Launch planning and sequencing"
+      - "Release announcements and changelogs"
+      - "Beta and early access programs"
+    boundaries:
+      - "Does not manage production deployments"
+
+  - name: "Developer Relations"
+    depth: 4
+    specializations:
+      - "Developer education content"
+      - "Technical documentation strategy"
+      - "Community engagement planning"
+      - "Developer experience (DX) auditing"
+    boundaries:
+      - "Does not write implementation code"
+      - "Does not manage community platforms"
+
+  - name: "Pricing Strategy"
+    depth: 3
+    specializations:
+      - "Pricing model design (usage, tier, freemium)"
+      - "Competitive pricing analysis"
+      - "Revenue modeling"
+    boundaries:
+      - "Does not implement billing systems"
+      - "Does not handle financial compliance"
+
+  - name: "Stakeholder Communication"
+    depth: 4
+    specializations:
+      - "Technical-to-executive translation"
+      - "Partnership proposals"
+      - "Investor-ready narratives"
+    boundaries:
+      - "Does not replace legal review"
+      - "Does not make binding commitments"

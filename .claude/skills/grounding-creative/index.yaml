@@ -1,0 +1,24 @@
+slug: grounding-creative
+name: "Grounding Creative"
+description: |
+  Use this skill IF user needs to review vocabulary atlas and TDRs
+  for a design area before visual exploration.
+
+triggers:
+  - "ground creative"
+  - "review vocabulary"
+  - "design vocabulary"
+  - "check TDRs"
+  - "review taste decisions"
+
+capabilities:
+  model_tier: sonnet
+  danger_level: safe
+  effort_hint: small
+  downgrade_allowed: true
+  execution_hint: sequential
+  requires:
+    native_runtime: false
+    tool_calling: false
+    thinking_traces: false
+    vision: false

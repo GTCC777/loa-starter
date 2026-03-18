@@ -1,0 +1,29 @@
+slug: crafting-feel
+name: "Crafting Feel"
+description: |
+  Use this skill IF user needs to analyze or tune the phenomenology
+  of an interaction — juice, restraint, timing, weight, silence.
+
+triggers:
+  - "feels off"
+  - "game feel"
+  - "juice"
+  - "too fast"
+  - "too slow"
+  - "needs weight"
+  - "feels flat"
+  - "craft feel"
+  - "tune timing"
+  - "kaironic hold"
+
+capabilities:
+  model_tier: sonnet
+  danger_level: safe
+  effort_hint: medium
+  downgrade_allowed: true
+  execution_hint: sequential
+  requires:
+    native_runtime: false
+    tool_calling: false
+    thinking_traces: false
+    vision: true

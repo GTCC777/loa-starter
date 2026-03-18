@@ -1,0 +1,117 @@
+schema_version: 3
+name: "Showcase"
+slug: "showcase"
+version: "1.0.0"
+description: "Landing page visual intelligence — how to present products, data, offerings, and achievements through cards and sections. Visual metaphor selection, narrative layout, data encoding, and semantic shape language for premium dark-theme marketing pages."
+short_description: "Landing page visual intelligence"
+author: "0xHoneyJar"
+license: "MIT"
+type: "skill-pack"
+visibility: public
+
+repository: https://github.com/0xHoneyJar/construct-showcase.git
+
+skills:
+  - slug: storytelling-layout
+    path: skills/storytelling-layout
+  - slug: visual-metaphor
+    path: skills/visual-metaphor
+  - slug: data-encoding
+    path: skills/data-encoding
+  - slug: visual-semiotics
+    path: skills/visual-semiotics
+  - slug: auditing-sections
+    path: skills/auditing-sections
+  - slug: researching-showcase
+    path: skills/researching-showcase
+
+commands:
+  - name: showcase-layout
+    path: commands/showcase-layout.md
+  - name: showcase-visual
+    path: commands/showcase-visual.md
+  - name: showcase-data
+    path: commands/showcase-data.md
+  - name: showcase-semiotics
+    path: commands/showcase-semiotics.md
+  - name: showcase-audit
+    path: commands/showcase-audit.md
+  - name: showcase-research
+    path: commands/showcase-research.md
+
+identity:
+  persona: identity/persona.yaml
+  expertise: identity/expertise.yaml
+
+domain:
+  - design
+  - landing-pages
+  - visual-communication
+
+expertise:
+  - card visual design
+  - metric storytelling
+  - visual metaphor selection
+  - landing page layout
+  - data presentation
+
+governed_by:
+  - artisan
+
+composition_paths:
+  reads:
+    - grimoires/
+
+compose_with:
+  - slug: artisan
+    relationship: "Showcase decides what to present and how. Artisan builds the implementation with taste tokens."
+  - slug: the-easel
+    relationship: "Easel's visual vocabulary and taste decisions feed into Showcase's metaphor selection."
+
+events:
+  emits:
+    - type: forge.showcase.pattern_discovered
+      description: New visual communication pattern added to knowledge base
+      data_schema:
+        pattern: string
+        source: string
+        domain: string
+    - type: forge.showcase.section_audited
+      description: A page section was audited against showcase patterns
+      data_schema:
+        page: string
+        score: number
+        findings: array
+  consumes:
+    - event: forge.k-hole.emergence_complete
+    - event: forge.easel.taste_recorded
+
+pack_dependencies:
+  required:
+    - slug: k-hole
+      version: ">=1.0.0"
+  optional:
+    - slug: the-easel
+      reason: "Aesthetic vocabulary and taste decisions feed into visual metaphor selection"
+    - slug: artisan
+      reason: "Implementation handoff — Showcase decides what, Artisan builds it"
+    - slug: vfx-playbook
+      reason: "VFX principles for card visual treatments"
+
+capabilities:
+  model_tier: sonnet
+  danger_level: safe
+  effort_hint: medium
+  downgrade_allowed: true
+  execution_hint: parallel
+  requires:
+    tool_calling: true
+    thinking_traces: false
+    vision: false
+
+hooks:
+  post_install: scripts/install.sh
+
+quick_start:
+  command: /showcase-audit
+  description: "Audit a landing page section against visual communication patterns"

@@ -1,0 +1,17 @@
+name: detecting-drift
+slug: detecting-drift
+version: 1.0.0
+description: Show what changed since last validation for a specific artifact. Computes confidence without writing to frontmatter.
+entry: SKILL.md
+triggers:
+  - /drift
+allowed-tools:
+  - Read
+  - Glob
+  - Grep
+  - Bash
+capabilities:
+  model_tier: standard
+  danger_level: safe
+  effort_hint: light
+  downgrade_allowed: false

@@ -1,0 +1,68 @@
+schema_version: 3
+name: Herald
+slug: herald
+version: 0.1.0
+description: Grounded product communication — announcements built from code evidence, not promises
+short_description: "Grounded product comms"
+domain:
+  - operations
+author: 0xHoneyJar
+license: MIT
+visibility: public
+skills:
+  # Core pipeline
+  - slug: grounding-announcements
+    path: skills/grounding-announcements
+  - slug: synthesizing-voice
+    path: skills/synthesizing-voice
+  - slug: chronicling-changes
+    path: skills/chronicling-changes
+repository:
+  url: https://github.com/0xHoneyJar/construct-herald.git
+  homepage: https://constructs.network/constructs/herald
+events:
+  emits:
+    - type: forge.herald.announcement_grounded
+      description: Announcement drafted from code reality with evidence citations
+      data_schema:
+        scope: string
+        type: string
+        features: array
+        evidence_commits: array
+    - type: forge.herald.voice_synthesized
+      description: Voice profile extracted or refined from content analysis
+      data_schema:
+        source_count: integer
+        dimensions_updated: array
+    - type: forge.herald.changes_chronicled
+      description: Structured change timeline produced from git evidence
+      data_schema:
+        scope: string
+        features: array
+        date_range: string
+  consumes: []
+composition_paths:
+  reads:
+    - "grimoires/laboratory/"
+  writes:
+    - "grimoires/herald/"
+governed_by:
+  - vocabulary-bank
+capabilities:
+  model_tier: sonnet
+  danger_level: moderate
+  effort_hint: medium
+  downgrade_allowed: true
+  execution_hint: sequential
+  requires:
+    tool_calling: true
+    thinking_traces: false
+    vision: false
+identity:
+  persona: identity/persona.yaml
+  expertise: identity/expertise.yaml
+hooks:
+  post_install: scripts/install.sh
+quick_start:
+  command: /announce
+  description: Draft a grounded community announcement from product changes

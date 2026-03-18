@@ -1,0 +1,25 @@
+slug: playtesting-loops
+name: "Playtesting Loops"
+description: |
+  Use this skill IF user needs to structure a playtest for feel,
+  learning validation, or system behavior observation.
+
+triggers:
+  - "playtest"
+  - "test this mechanic"
+  - "something feels off"
+  - "watch users"
+  - "observation protocol"
+  - "does this teach"
+
+capabilities:
+  model_tier: sonnet
+  danger_level: safe
+  effort_hint: medium
+  downgrade_allowed: true
+  execution_hint: sequential
+  requires:
+    native_runtime: false
+    tool_calling: false
+    thinking_traces: false
+    vision: true

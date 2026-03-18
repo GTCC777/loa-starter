@@ -1,0 +1,65 @@
+{
+  "verdict": "CHANGES_REQUIRED",
+  "summary": "Event emission types in multiple skills do not match the required forge.hardening.* schema, which will break event routing and downstream consumers.",
+  "issues": [
+    {
+      "severity": "major",
+      "file": "skills/postmortem/SKILL.md",
+      "line": 150,
+      "description": "Event type emitted is missing the required `forge.` prefix, so it won't match the construct's declared event schema or be routed correctly.",
+      "current_code": "```bash\nemit_event \"hardening.pmr_created\" \\\n  '{\n    \"pmr_id\": \"PMR-{YYYY}-{NNN}\",\n    \"title\": \"{title}\",\n    \"severity\": \"{severity}\",\n    \"root_cause_category\": \"{category}\",\n    \"affected_file_count\": {N},\n    \"signal_gap_count\": {N},\n    \"hardening_action_count\": {N},\n    \"pmr_path\": \"grimoires/hardening/pmr/PMR-{YYYY}-{NNN}.md\"\n  }' \\\n  \"hardening/postmortem\"\n```",
+      "fixed_code": "```bash\nemit_event \"forge.hardening.pmr_created\" \\\n  '{\n    \"pmr_id\": \"PMR-{YYYY}-{NNN}\",\n    \"title\": \"{title}\",\n    \"severity\": \"{severity}\",\n    \"root_cause_category\": \"{category}\",\n    \"affected_file_count\": {N},\n    \"signal_gap_count\": {N},\n    \"hardening_action_count\": {N},\n    \"pmr_path\": \"grimoires/hardening/pmr/PMR-{YYYY}-{NNN}.md\"\n  }' \\\n  \"hardening/postmortem\"\n```",
+      "explanation": "The construct declares event types under `forge.hardening.*`. Emitting without the prefix breaks compatibility with the schema and consumers expecting the canonical type."
+    },
+    {
+      "severity": "major",
+      "file": "skills/triage/SKILL.md",
+      "line": 140,
+      "description": "Event type emitted is missing the required `forge.` prefix.",
+      "current_code": "```bash\nemit_event \"hardening.triage_completed\" \\\n  '{\n    \"signal_source\": \"{source}\",\n    \"severity\": \"{severity}\",\n    \"affected_paths\": [{paths}],\n    \"recommended_action\": \"{action}\"\n  }' \\\n  \"hardening/triage\"\n```",
+      "fixed_code": "```bash\nemit_event \"forge.hardening.triage_completed\" \\\n  '{\n    \"signal_source\": \"{source}\",\n    \"severity\": \"{severity}\",\n    \"affected_paths\": [{paths}],\n    \"recommended_action\": \"{action}\"\n  }' \\\n  \"hardening/triage\"\n```",
+      "explanation": "Aligns emitted event type with the construct manifest (`forge.hardening.triage_completed`) so it can be validated and routed."
+    },
+    {
+      "severity": "major",
+      "file": "skills/blast-radius/SKILL.md",
+      "line": 150,
+      "description": "Event type emitted is missing the required `forge.` prefix.",
+      "current_code": "```bash\nemit_event \"hardening.blast_radius_mapped\" \\\n  '{\n    \"scope\": \"{input}\",\n    \"affected_file_count\": {N},\n    \"terminal_consumer_count\": {N},\n    \"severity_distribution\": {\"critical\": {N}, \"high\": {N}, \"medium\": {N}, \"low\": {N}}\n  }' \\\n  \"hardening/blast-radius\"\n```",
+      "fixed_code": "```bash\nemit_event \"forge.hardening.blast_radius_mapped\" \\\n  '{\n    \"scope\": \"{input}\",\n    \"affected_file_count\": {N},\n    \"terminal_consumer_count\": {N},\n    \"severity_distribution\": {\"critical\": {N}, \"high\": {N}, \"medium\": {N}, \"low\": {N}}\n  }' \\\n  \"hardening/blast-radius\"\n```",
+      "explanation": "Ensures the event matches the declared schema and naming convention `forge.hardening.*`."
+    },
+    {
+      "severity": "major",
+      "file": "skills/harden/SKILL.md",
+      "line": 170,
+      "description": "Event type emitted is missing the required `forge.` prefix.",
+      "current_code": "```bash\nemit_event \"hardening.action_proposed\" \\\n  '{\n    \"action_id\": \"{action_id}\",\n    \"pmr_id\": \"{pmr_id}\",\n    \"action_type\": \"{test-spec|type-spec|error-boundary|checklist|monitor}\",\n    \"priority\": \"{priority}\",\n    \"description\": \"{description}\"\n  }' \\\n  \"hardening/harden\"\n```",
+      "fixed_code": "```bash\nemit_event \"forge.hardening.action_proposed\" \\\n  '{\n    \"action_id\": \"{action_id}\",\n    \"pmr_id\": \"{pmr_id}\",\n    \"action_type\": \"{test-spec|type-spec|error-boundary|checklist|monitor}\",\n    \"priority\": \"{priority}\",\n    \"description\": \"{description}\"\n  }' \\\n  \"hardening/harden\"\n```",
+      "explanation": "Matches the manifest event type and allows downstream systems to consume `forge.hardening.action_proposed`."
+    },
+    {
+      "severity": "major",
+      "file": "skills/regression-check/SKILL.md",
+      "line": 210,
+      "description": "Regression event emission is missing the required `forge.` prefix.",
+      "current_code": "```bash\nemit_event \"hardening.regression_detected\" \\\n  '{\n    \"action_id\": \"{action_id}\",\n    \"pmr_id\": \"{pmr_id}\",\n    \"regression_type\": \"{removed|weakened|bypassed|stale}\",\n    \"evidence\": \"{file:line description}\",\n    \"affected_files\": [\"{file1}\", \"{file2}\"]\n  }' \\\n  \"hardening/regression-check\"\n```",
+      "fixed_code": "```bash\nemit_event \"forge.hardening.regression_detected\" \\\n  '{\n    \"action_id\": \"{action_id}\",\n    \"pmr_id\": \"{pmr_id}\",\n    \"regression_type\": \"{removed|weakened|bypassed|stale}\",\n    \"evidence\": \"{file:line description}\",\n    \"affected_files\": [\"{file1}\", \"{file2}\"]\n  }' \\\n  \"hardening/regression-check\"\n```",
+      "explanation": "Ensures emitted regression events conform to the declared `forge.hardening.regression_detected` type."
+    },
+    {
+      "severity": "major",
+      "file": "skills/regression-check/SKILL.md",
+      "line": 225,
+      "description": "Verification event emission is missing the required `forge.` prefix.",
+      "current_code": "```bash\nemit_event \"hardening.action_verified\" \\\n  '{\n    \"action_id\": \"{action_id}\",\n    \"pmr_id\": \"{pmr_id}\",\n    \"verification_method\": \"{method}\",\n    \"verified_at\": \"{timestamp}\"\n  }' \\\n  \"hardening/regression-check\"\n```",
+      "fixed_code": "```bash\nemit_event \"forge.hardening.action_verified\" \\\n  '{\n    \"action_id\": \"{action_id}\",\n    \"pmr_id\": \"{pmr_id}\",\n    \"verification_method\": \"{method}\",\n    \"verified_at\": \"{timestamp}\"\n  }' \\\n  \"hardening/regression-check\"\n```",
+      "explanation": "Aligns emitted verification events with the manifest event schema."
+    }
+  ],
+  "fabrication_check": {
+    "passed": true,
+    "concerns": []
+  },
+  "iteration": 1
+}

@@ -1,0 +1,17 @@
+name: signal-audit
+slug: signal-audit
+version: 1.0.0
+description: Audit monitoring, test, type, and error handling coverage for a scope and identify gaps.
+entry: SKILL.md
+triggers:
+  - /signal-audit
+allowed-tools:
+  - Read
+  - Glob
+  - Grep
+  - Bash
+capabilities:
+  model_tier: sonnet
+  danger_level: safe
+  effort_hint: large
+  downgrade_allowed: true

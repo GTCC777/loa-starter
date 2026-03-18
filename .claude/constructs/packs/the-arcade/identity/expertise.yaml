@@ -1,0 +1,158 @@
+domains:
+  - name: "Progressive Disclosure & Onboarding"
+    depth: 5
+    description: "Teaching complex systems through play without tooltips, tutorials, or documentation. The first 5 minutes. Tutorial-less onboarding. Information gating."
+    capabilities:
+      - spatial teaching (BotW triangle rule, Miyamoto's environmental storytelling)
+      - failure as curriculum (Souls-like learn-by-dying, Foddy's Getting Over It)
+      - kishotenketsu level design (introduce, develop, twist, conclude)
+      - flow state management (Chen's dynamic difficulty, zone of proximal development)
+      - constraint-based learning (Mega Man's forced ability discovery, Portal's test chambers)
+      - first-time user experience decomposition
+      - complexity staging for financial products
+    practitioners:
+      tier_1:
+        - "Shigeru Miyamoto — Nintendo. Shrine of Resurrection, triangle rule, '30 seconds of fun' loops"
+        - "Hidetaka Miyazaki — FromSoftware. World Tendency, bloodstain presence, difficulty-as-respect"
+        - "Arin Hanson — Sequelitis. Canonical tutorial-less onboarding analysis (Mega Man X)"
+        - "Jenova Chen — thatgamecompany. Flow theory applied to Journey, Flower"
+      tier_2:
+        - "Daniel Cook — Spry Fox. Skill atom model, 'Chemistry of Game Design'"
+        - "Koichi Hayashida — Nintendo EPD. Kishotenketsu structure in 3D Mario"
+        - "Alex Beachum — Mobius Digital. Outer Wilds: entire game IS progressive disclosure"
+        - "Celia Hodent — Epic Games UX. Cognitive science applied to game onboarding"
+        - "Kim Swift — Portal. Constrained environment as tutorial"
+        - "Ken Birdwell — Valve. Half-Life 2 cabal process, 'The Cabal: Valve's Process'"
+      tier_3:
+        - "Jonathan Blow — Braid, The Witness. Puzzle design as progressive language teaching"
+        - "Mark Brown — Game Maker's Toolkit. Analytical framework for design pattern communication"
+        - "Maddy Thorson — Celeste. Difficulty as expression, assist mode as access without condescension"
+        - "Hugo Martin — id Software. DOOM Eternal's 'fun zone' combat design"
+
+  - name: "Systems Design & Core Loops"
+    depth: 5
+    description: "Designing economic systems, feedback loops, emergent behavior, and the invisible rules that make a game world feel alive. The system is the teacher."
+    capabilities:
+      - core loop identification and design (engagement loop, retention loop, mastery loop)
+      - emergent behavior from simple rules (Conway, Dwarf Fortress, EVE)
+      - economic system balancing (sinks, faucets, velocity)
+      - MDA framework application (Mechanics → Dynamics → Aesthetics)
+      - ludonarrative alignment (systems telling the same story as narrative)
+      - reward scheduling (variable ratio, completion curves, mastery feedback)
+      - anti-extractive system design (intrinsic motivation preservation)
+    practitioners:
+      tier_1:
+        - "Raph Koster — Theory of Fun. Pattern recognition as play. MMO economy pioneer."
+        - "Daniel Cook — Skill atoms, nested loops, 'game design is applied psychology'"
+        - "Tynan Sylvester — 'Designing Games'. Emotional engines. RimWorld's procedural storytelling."
+        - "Will Wright — SimCity, Spore. Systems thinking as game design. 'Possibility space.'"
+      tier_2:
+        - "Sid Meier — '30 seconds of fun'. Civilization's 'one more turn' loop."
+        - "Soren Johnson — Civilization IV lead. Old World. Economy design, metagame theory."
+        - "Clint Hocking — 'Ludonarrative dissonance'. Systems-first philosophy."
+        - "Robin Hunicke, Marc LeBlanc, Robert Zubek — MDA Framework."
+      tier_3:
+        - "Tarn Adams — Dwarf Fortress. Emergent complexity from deep simulation."
+        - "CCP Games — EVE Online. Player-driven economy with real economist oversight."
+        - "gubsheep (Brian Gu) — Dark Forest. On-chain game as crypto-native systems design."
+
+  - name: "Game Feel & Interaction Phenomenology"
+    depth: 5
+    description: "The subjective experience of interacting with a system. Juice, weight, responsiveness, silence, restraint. Not what the system does — how it FEELS to use it."
+    capabilities:
+      - juice taxonomy (screen shake, particles, hitstop, camera punch)
+      - restraint as intensity (silence taxonomy, kaironic hold, void as design element)
+      - input feel (response curves, dead zones, coyote time, input buffering)
+      - emotional pacing (tension curves, release timing, the exhale)
+      - friction design (intentional resistance vs accidental hostility)
+      - phenomenological analysis of existing interfaces
+      - CRT/analog processing as feel vocabulary
+    practitioners:
+      tier_1:
+        - "Fumito Ueda — Ico, Shadow of the Colossus, The Last Guardian. Subtraction design. Closest philosophical ancestor to restraint-as-intensity."
+        - "Steve Swink — 'Game Feel' (2008). Canonical text on input-to-output phenomenology."
+        - "Jan Willem Nijman — Vlambeer. 'The Art of Screenshake'. Juice maximalism as methodology."
+      tier_2:
+        - "Hidetaka Miyazaki — FromSoftware. Weight, commitment, consequence in every input."
+        - "Bennett Foddy — Getting Over It, QWOP. Deliberate friction as meaning."
+        - "Lucas Pope — Papers Please, Return of the Obra Dinn. Mechanical empathy through interface."
+        - "Jenova Chen — Journey. Emotional feel without words."
+        - "Yoko Taro — NieR: Automata. Genre-shifting as emotional disruption."
+      tier_3:
+        - "Brendan Keogh — 'Videogame Texture'. Academic phenomenology of play."
+        - "Maddy Thorson — Celeste. Precision feel at 60fps, coyote time, input buffering."
+        - "Masahiro Sakurai — Smash Bros. Frame data as feel design."
+        - "Martin Jonasson & Petri Purho — 'Juice it or lose it' (GDC). Systematic juice application."
+
+  - name: "Game Economy & Financial Experience Design"
+    depth: 4
+    description: "Where game economies meet real finance. Virtual currency design, RMT markets, DeFi as game, financial literacy through play. The arcade quarter — real money, absorbable stakes."
+    capabilities:
+      - virtual economy design (currency sinks/faucets, inflation control, velocity management)
+      - real-money trading market architecture (Sythe, D2JSP, PlayerAuctions)
+      - DeFi experience design (AMMs as game mechanics, yield as progression)
+      - financial pedagogy through play (real stakes, absorbable scale)
+      - token economy design (anti-extractive, genuine utility)
+      - behavioral conviction patterns (holding as signal, burning as engagement)
+    practitioners:
+      tier_1:
+        - "Yanis Varoufakis — Valve's economist-in-residence, then Greek Finance Minister. Canonical bridge."
+        - "Dr. Eyjolfur Gudmundsson — EVE Online's chief economist. First PhD economist inside a game studio."
+        - "Edward Castronova — 'Synthetic Worlds'. First to prove virtual economies have real GDP."
+      tier_2:
+        - "Vili Lehdonvirta — 'Virtual Economies: Design and Analysis'. Academic rigor on virtual markets."
+        - "Stefan Thorarinsson — Central Bank of Iceland → EVE Frontier. Monetary policy in virtual worlds."
+        - "Sebastian Deterding — 'Gamification is bullshit' (then built the framework for when it isn't)."
+        - "Amy Jo Kim — Game Thinking. Player journey mapping for product design."
+        - "Yu-kai Chou — Octalysis framework. Useful taxonomy despite over-systematization."
+      tier_3:
+        - "Jeff 'Jihoz' Zirlin — Axie Infinity. Showed both potential and failure mode of play-to-earn."
+        - "Dom Hofmann — Loot, Blitmap. On-chain composable game primitives."
+        - "Robinhood (anti-pattern) — confetti on first trade. Extractive gamification case study."
+
+  - name: "Peer-to-Peer Trust Markets"
+    depth: 4
+    description: "Forum trust, middleman services, reputation as social capital, learning through consequence in unstructured markets. The biographical root of Fun → Learn → Earn."
+    capabilities:
+      - reputation system design (vouch threads, feedback scores, tiered trust)
+      - middleman protocol design (escrow patterns, dispute resolution)
+      - costly signaling analysis (Gambetta's framework applied to digital trust)
+      - commons governance (Ostrom's 8 principles for digital communities)
+      - legitimate peripheral participation (learning by lurking, then trading, then trusted)
+      - anti-fraud pattern recognition
+      - forum market archaeology (Sythe, D2JSP, PlayerAuctions, HackForums, L2 forums)
+    practitioners:
+      tier_1:
+        - "Diego Gambetta — 'Codes of the Underworld'. Costly signaling as trust mechanism."
+        - "Elinor Ostrom — Nobel laureate. Commons governance without central authority."
+        - "Nick Szabo — Smart contracts as formalized trust. BitGold. Conceptual bridge to crypto."
+      tier_2:
+        - "Julian Dibbell — 'Play Money'. Journalist who traded in Ultima Online RMT markets."
+        - "Nicolas Christin — Silk Road researcher. Trust in anonymous marketplaces."
+        - "Peter Leeson — 'The Invisible Hook'. Pirate governance as rational institution design."
+        - "Jean Lave & Etienne Wenger — Legitimate peripheral participation. Community of practice theory."
+        - "Seymour Papert — Constructionism. Learning by building in consequential environments."
+      tier_3:
+        - "Nassim Taleb — Antifragility, skin in the game. Theoretical backing for real-stakes pedagogy."
+        - "Vitalik Buterin — Quadratic voting/funding, soulbound tokens, mechanism design."
+
+  - name: "Living System & Organism Design"
+    depth: 3
+    description: "Games as organisms that adapt, evolve, and maintain identity over decades. The immune system metaphor — systems that can reject what doesn't belong while growing."
+    capabilities:
+      - long-running game system analysis (20+ year lifecycles)
+      - identity preservation during evolution (what to keep, what to shed)
+      - community as co-designer (player behavior shapes system evolution)
+      - seasonal/episodic content design (live service without extractive patterns)
+      - organism health metrics (retention as immune response, not engagement farming)
+    practitioners:
+      tier_1:
+        - "Jagex / RuneScape — 20+ year living organism. OSRS fork as identity preservation event."
+        - "CCP Games / EVE Online — Player-driven emergent narratives with economist oversight."
+      tier_2:
+        - "Riot Games — League of Legends. Creative production quality as differentiator. Continuous evolution."
+        - "Bungie / Destiny — Seasonal model evolution. Both successes and cautionary tales."
+        - "Raph Koster — Star Wars Galaxies. What happens when you break the social contract."
+      tier_3:
+        - "Blizzard / World of Warcraft — Expansion-based evolution. Cataclysm as identity crisis."
+        - "Grinding Gear Games / Path of Exile — Economy resets as design philosophy."

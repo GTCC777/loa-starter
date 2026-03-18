@@ -1,0 +1,20 @@
+name: concierge-testing
+slug: concierge-testing
+version: 1.0.0
+description: Validate gap hypotheses by manually simulating features for individual users and measuring commitment.
+entry: SKILL.md
+triggers:
+  - /concierge-test
+  - /experiment
+allowed-tools:
+  - Read
+  - Write
+  - Glob
+  - Grep
+  - Edit
+  - Bash
+capabilities:
+  model_tier: standard
+  danger_level: low
+  effort_hint: medium
+  downgrade_allowed: true

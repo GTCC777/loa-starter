@@ -1,0 +1,129 @@
+schema_version: 3
+name: Hardening
+slug: hardening
+version: 0.2.0
+description: The one that finds the holes before someone else does. Full-stack security across auth flows, data privacy, env secrets, and API surfaces. Pre-share audits prevent the breach. Post-incident defense contains the blast. 21-scan convergence — nothing slips through.
+short_description: "Full-stack security construct"
+domain:
+  - security
+author: 0xHoneyJar
+license: MIT
+visibility: public
+skills:
+  # Core incident pipeline
+  - slug: postmortem
+    path: skills/postmortem
+  - slug: triage
+    path: skills/triage
+  - slug: blast-radius
+    path: skills/blast-radius
+  # Defensive measure generation
+  - slug: harden
+    path: skills/harden
+  - slug: regression-check
+    path: skills/regression-check
+  - slug: signal-audit
+    path: skills/signal-audit
+  # Pre-share security audits
+  - slug: audit-api
+    path: skills/audit-api
+  - slug: audit-data-privacy
+    path: skills/audit-data-privacy
+  - slug: audit-env
+    path: skills/audit-env
+  - slug: audit-auth
+    path: skills/audit-auth
+  # Inner processes (SKILL.md only — cognitive primitives)
+  - slug: correlating
+    path: skills/correlating
+repository:
+  url: https://github.com/0xHoneyJar/construct-hardening.git
+  homepage: https://constructs.network/constructs/hardening
+events:
+  emits:
+    - type: forge.hardening.pmr_created
+      description: Emitted when a new postmortem record is created
+      data_schema:
+        pmr_id: string
+        title: string
+        severity: string
+        root_cause_category: string
+        affected_file_count: number
+        signal_gap_count: number
+        hardening_action_count: number
+        pmr_path: string
+    - type: forge.hardening.triage_completed
+      description: Emitted when a triage assessment is finished
+      data_schema:
+        signal_source: string
+        severity: string
+        affected_paths: array
+        recommended_action: string
+    - type: forge.hardening.blast_radius_mapped
+      description: Emitted when blast radius analysis is complete
+      data_schema:
+        scope: string
+        affected_file_count: number
+        terminal_consumer_count: number
+        severity_distribution: object
+    - type: forge.hardening.action_proposed
+      description: Emitted when a new hardening action is proposed
+      data_schema:
+        action_id: string
+        pmr_id: string
+        action_type: string
+        priority: string
+        description: string
+    - type: forge.hardening.action_verified
+      description: Emitted when a hardening action is verified as effective
+      data_schema:
+        action_id: string
+        pmr_id: string
+        verification_method: string
+        verified_at: string
+    - type: forge.hardening.regression_detected
+      description: Emitted when a past hardening measure is found failing
+      data_schema:
+        action_id: string
+        pmr_id: string
+        regression_type: string
+        evidence: string
+        affected_files: array
+  consumes:
+    - event: forge.observer.canvas_created
+      description: User feedback with severity signals triggers auto-triage
+      delivery: at_least_once
+      idempotency:
+        key_fields: [canvas_path]
+    - event: forge.observer.gap_filed
+      description: Filed gaps cross-referenced with historical PMR blast radii
+      delivery: at_least_once
+      idempotency:
+        key_fields: [gap_id, issue_url]
+composition_paths:
+  reads:
+    - "grimoires/laboratory/"
+  writes:
+    - "grimoires/hardening/"
+compose_with:
+  - observer
+pack_dependencies:
+  - slug: observer
+capabilities:
+  model_tier: opus
+  danger_level: critical
+  effort_hint: large
+  downgrade_allowed: false
+  execution_hint: sequential
+  requires:
+    tool_calling: true
+    thinking_traces: true
+    vision: false
+identity:
+  persona: identity/persona.yaml
+  expertise: identity/expertise.yaml
+hooks:
+  post_install: scripts/install.sh
+quick_start:
+  command: /postmortem
+  description: create a structured postmortem from an incident

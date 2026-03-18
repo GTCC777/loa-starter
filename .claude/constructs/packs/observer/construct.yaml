@@ -1,0 +1,121 @@
+schema_version: 3
+name: Beehive
+slug: observer
+version: 3.0.0
+description: "Builds the hive so the colony can thrive. Watches how people actually use your product, asks the questions they didn't know they needed to answer, and reads the signals a living system gives off — without ever extracting from the people you're learning from."
+short_description: "Tend the colony, read the signals"
+domain:
+  - analytics
+author: 0xHoneyJar
+license: MIT
+visibility: public
+skills:
+  # Core capture pipeline
+  - slug: observing-users
+    path: skills/observing-users
+  - slug: ingesting-dms
+    path: skills/ingesting-dms
+  - slug: batch-observing
+    path: skills/batch-observing
+  - slug: feedback-observing
+    path: skills/feedback-observing
+  - slug: concierge-testing
+    path: skills/concierge-testing
+  # Synthesis
+  - slug: shaping-journeys
+    path: skills/shaping-journeys
+  - slug: daily-synthesis
+    path: skills/daily-synthesis
+  - slug: shaping
+    path: skills/shaping
+  # Analysis
+  - slug: level-3-diagnostic
+    path: skills/level-3-diagnostic
+  - slug: analyzing-gaps
+    path: skills/analyzing-gaps
+  - slug: detecting-drift
+    path: skills/detecting-drift
+  - slug: detecting-staleness
+    path: skills/detecting-staleness
+  # Action
+  - slug: filing-gaps
+    path: skills/filing-gaps
+  - slug: batch-filing-gaps
+    path: skills/batch-filing-gaps
+  - slug: generating-followups
+    path: skills/generating-followups
+  # Migration
+  - slug: importing-research
+    path: skills/importing-research
+  # Lifecycle & maintenance
+  - slug: refreshing-artifacts
+    path: skills/refreshing-artifacts
+  - slug: snapshotting
+    path: skills/snapshotting
+  # Inner processes (SKILL.md only — cognitive primitives)
+  - slug: thinking
+    path: skills/thinking
+  - slug: listening
+    path: skills/listening
+  - slug: seeing
+    path: skills/seeing
+  - slug: speaking
+    path: skills/speaking
+  - slug: distilling
+    path: skills/distilling
+  - slug: growing
+    path: skills/growing
+repository:
+  url: https://github.com/0xHoneyJar/construct-observer.git
+  homepage: https://constructs.network/constructs/observer
+events:
+  emits:
+    - type: forge.observer.canvas_created
+      description: Emitted when a new user truth canvas is created
+      data_schema:
+        user_id: string
+        canvas_path: string
+    - type: forge.observer.journey_shaped
+      description: Emitted when a user journey is shaped from canvases
+      data_schema:
+        journey_id: string
+        journey_path: string
+    - type: forge.observer.gap_filed
+      description: Emitted when a gap analysis issue is filed
+      data_schema:
+        gap_id: string
+        issue_url: string
+  consumes:
+    - event: forge.crucible.journey_validated
+type: skill-pack
+composition_paths:
+  writes:
+    - grimoires/laboratory/canvases/
+    - grimoires/laboratory/journeys/
+    - grimoires/laboratory/synthesis/
+compose_with:
+  - slug: crucible
+    relationship: "Circular validation — Observer captures user truth, Crucible validates journeys, Observer consumes validation results"
+  - slug: artisan
+    relationship: "Canonical pairing — Observer canvases provide user truth that informs Artisan's taste decisions"
+pack_dependencies:
+  - slug: crucible
+  - slug: artisan
+capabilities:
+  model_tier: sonnet
+  danger_level: moderate
+  effort_hint: medium
+  downgrade_allowed: true
+  execution_hint: sequential
+  requires:
+    tool_calling: true
+    thinking_traces: false
+    vision: false
+identity:
+  persona: identity/persona.yaml
+  expertise: identity/expertise.yaml
+hooks:
+  post_install: scripts/install.sh
+quick_start:
+  command: /observe
+  description: capture user feedback as hypothesis-first research

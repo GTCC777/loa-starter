@@ -1,0 +1,75 @@
+name: Synthesizing Vocabulary
+slug: synthesizing-vocabulary
+version: 0.1.0
+description: "Extract vocabulary from existing product copy and organize into a tiered vocabulary bank. Bootstrap a new bank or update an existing one."
+model: native
+color: blue
+effort_hint: medium
+danger_level: safe
+
+categories:
+  - communication
+  - voice-design
+  - analysis
+
+triggers:
+  - /synthesize-vocabulary
+  - /synthesize-vocab
+  - /extract-vocabulary
+  - "extract the vocabulary"
+  - "build a vocabulary bank"
+  - "bootstrap vocabulary bank"
+
+negative_triggers:
+  - "synthesize voice"
+  - "synthesize report"
+
+examples:
+  - context: "User wants to create a vocabulary bank for a new product"
+    user_says: "/synthesize-vocabulary"
+    agent_action: "Scan codebase for UI copy, classify terms by tier, generate vocabulary bank"
+  - context: "User wants to update an existing bank with new terms"
+    user_says: "extract vocabulary from the new feature"
+    agent_action: "Scan target files, identify new terms, propose tier classification"
+
+domain_hints:
+  - vocabulary extraction
+  - copy analysis
+  - term classification
+  - vocabulary bank
+
+entry: SKILL.md
+
+capabilities:
+  model_tier: sonnet
+  danger_level: safe
+  effort_hint: medium
+  downgrade_allowed: true
+  execution_hint: sequential
+  requires:
+    native_runtime: false
+    tool_calling: true
+
+allowed-tools:
+  - Read
+  - Glob
+  - Grep
+  - Bash
+  - Write
+  - Edit
+
+dependencies:
+  - artifact: "app/"
+    required: true
+    description: "Application source code containing UI copy"
+
+outputs:
+  - path: "grimoires/{slug}/vocabulary-bank.md"
+    description: "Generated or updated vocabulary bank"
+  - path: "grimoires/{slug}/channel-registry.md"
+    description: "Channel registry (generated on first run if missing)"
+
+events:
+  emits:
+    - name: vocabulary-bank.vocabulary_synthesized
+      description: "Emitted after vocabulary extraction with tier counts"

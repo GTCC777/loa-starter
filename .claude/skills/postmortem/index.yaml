@@ -1,0 +1,19 @@
+name: postmortem
+slug: postmortem
+version: 1.0.0
+description: Create a structured Postmortem Record from an incident, mining git history and issues for timeline and blast radius.
+entry: SKILL.md
+triggers:
+  - /postmortem
+allowed-tools:
+  - Read
+  - Write
+  - Glob
+  - Grep
+  - Bash
+  - Edit
+capabilities:
+  model_tier: opus
+  danger_level: safe
+  effort_hint: large
+  downgrade_allowed: false

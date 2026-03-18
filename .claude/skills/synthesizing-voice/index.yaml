@@ -1,0 +1,75 @@
+name: synthesizing-voice
+slug: synthesizing-voice
+version: 1.0.0
+description: >
+  Extract a voice profile from existing announcements, community posts, or team
+  communication into voice.md. Analyzes register, vocabulary, tone, rhythm, and
+  audience adaptation patterns. Use when setting up Herald for a new repo or
+  refining voice from announcement feedback.
+
+model: native
+color: amber
+
+effort_hint: medium
+danger_level: safe
+categories:
+  - communication
+  - configuration
+
+triggers:
+  - "/synthesize-voice"
+  - "extract voice"
+  - "set up voice profile"
+  - "analyze our tone"
+  - "configure announcement style"
+
+negative_triggers:
+  - "write announcement"
+  - "synthesize taste"
+  - "apply brand tokens"
+
+examples:
+  - context: "User setting up Herald for the first time"
+    user_says: "Extract our voice from these Discord announcements"
+    agent_action: "Analyze the provided content across 5 dimensions (register, vocabulary, tone, rhythm, audience), produce voice.md"
+
+  - context: "User refining voice after feedback"
+    user_says: "Our announcements sound too corporate, refine the voice"
+    agent_action: "Read current voice.md and recent announcements, identify corporate patterns, adjust register and vocabulary tokens"
+
+domain_hints:
+  - voice
+  - tone
+  - style
+  - brand
+  - communication
+  - register
+
+entry: SKILL.md
+
+capabilities:
+  model_tier: sonnet
+  danger_level: safe
+  effort_hint: medium
+  downgrade_allowed: true
+  execution_hint: sequential
+  requires:
+    native_runtime: true
+    tool_calling: true
+
+allowed-tools:
+  - Read
+  - Write
+  - Glob
+  - Grep
+  - Edit
+  - AskUserQuestion
+
+outputs:
+  - path: "contexts/voice/voice.md"
+    description: "Voice profile with register, vocabulary, tone, rhythm, and audience adaptation"
+
+events:
+  emits:
+    - name: "forge.herald.voice_synthesized"
+      description: "Voice profile extracted or refined from content analysis"

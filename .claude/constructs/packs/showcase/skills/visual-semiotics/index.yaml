@@ -1,0 +1,17 @@
+slug: visual-semiotics
+name: Visual Semiotics
+description: |
+  Use this skill IF user needs to understand what shapes, colors, motion,
+  or materials mean to viewers. Covers: universal shape semantics, embodied
+  metaphor (Lakoff & Johnson), motion-as-meaning, and material language
+  on dark premium themes.
+version: 1.0.0
+triggers:
+  - "/showcase-semiotics"
+  - "what does this shape mean"
+  - "shape semantics"
+  - "visual meaning"
+capabilities:
+  model_tier: sonnet
+  danger_level: low
+  effort_hint: light

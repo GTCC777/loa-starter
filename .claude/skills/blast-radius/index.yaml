@@ -1,0 +1,17 @@
+name: blast-radius
+slug: blast-radius
+version: 1.0.0
+description: Map impact surface of a change or regression by tracing data flow through every consumer.
+entry: SKILL.md
+triggers:
+  - /blast-radius
+allowed-tools:
+  - Read
+  - Glob
+  - Grep
+  - Bash
+capabilities:
+  model_tier: sonnet
+  danger_level: safe
+  effort_hint: large
+  downgrade_allowed: false

@@ -1,0 +1,17 @@
+name: regression-check
+slug: regression-check
+version: 1.0.0
+description: Verify hardening measures from past PMRs still hold by checking tests, types, and error boundaries.
+entry: SKILL.md
+triggers:
+  - /regression-check
+allowed-tools:
+  - Read
+  - Glob
+  - Grep
+  - Bash
+capabilities:
+  model_tier: sonnet
+  danger_level: safe
+  effort_hint: medium
+  downgrade_allowed: true

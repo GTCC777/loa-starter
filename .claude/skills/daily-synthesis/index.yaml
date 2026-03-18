@@ -1,0 +1,19 @@
+name: daily-synthesis
+slug: daily-synthesis
+version: 1.0.0
+description: Automated end-to-end feedback pipeline that pulls new Supabase entries, enriches, classifies, routes to canvases, and generates a synthesis report.
+entry: SKILL.md
+triggers:
+  - /daily-synthesis
+allowed-tools:
+  - Read
+  - Write
+  - Glob
+  - Grep
+  - Edit
+  - Bash
+capabilities:
+  model_tier: standard
+  danger_level: moderate
+  effort_hint: heavy
+  downgrade_allowed: false

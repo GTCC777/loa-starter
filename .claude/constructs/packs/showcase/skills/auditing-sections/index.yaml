@@ -1,0 +1,16 @@
+slug: auditing-sections
+name: Auditing Sections
+description: |
+  Use this skill IF user wants to review a landing page section against
+  Showcase patterns. Performs pattern-by-pattern audit covering layout,
+  visual metaphor, data encoding, framing, and visual semiotics.
+version: 1.0.0
+triggers:
+  - "/showcase-audit"
+  - "audit this section"
+  - "review this page"
+  - "does this section follow patterns"
+capabilities:
+  model_tier: sonnet
+  danger_level: low
+  effort_hint: medium

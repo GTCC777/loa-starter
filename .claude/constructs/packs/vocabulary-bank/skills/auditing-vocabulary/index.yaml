@@ -1,0 +1,77 @@
+name: Auditing Vocabulary
+slug: auditing-vocabulary
+version: 0.1.0
+description: "Audit existing copy against the installed vocabulary bank. Flags register violations, cold-deployed terms, tonal gaps, and anthropomorphism."
+model: native
+color: amber
+effort_hint: medium
+danger_level: safe
+
+categories:
+  - communication
+  - voice-design
+  - quality-assurance
+
+triggers:
+  - /audit-vocabulary
+  - /audit-vocab
+  - "audit the vocabulary"
+  - "check copy against vocabulary bank"
+  - "vocabulary lint"
+  - "check the voice register"
+
+negative_triggers:
+  - "audit security"
+  - "audit code"
+  - "audit sprint"
+
+examples:
+  - context: "User wants to check if announcement copy follows vocabulary rules"
+    user_says: "/audit-vocabulary"
+    agent_action: "Load vocabulary bank, scan target copy, report violations by severity"
+  - context: "User wrote a Discord announcement and wants vocabulary review"
+    user_says: "audit the vocab on this announcement"
+    agent_action: "Identify register violations, cold-deployed terms, tonal gaps"
+
+domain_hints:
+  - vocabulary governance
+  - voice register
+  - copy audit
+  - lore boundary
+
+entry: SKILL.md
+
+capabilities:
+  model_tier: sonnet
+  danger_level: safe
+  effort_hint: medium
+  downgrade_allowed: true
+  execution_hint: sequential
+  requires:
+    native_runtime: false
+    tool_calling: true
+
+allowed-tools:
+  - Read
+  - Glob
+  - Grep
+  - Bash
+  - Write
+  - Edit
+
+dependencies:
+  - artifact: "grimoires/{slug}/vocabulary-bank.md"
+    required: true
+    description: "The product's populated vocabulary bank"
+  - artifact: "grimoires/{slug}/channel-registry.md"
+    required: false
+    description: "Channel-to-register mapping (optional, uses defaults if missing)"
+
+outputs:
+  - path: "grimoires/{slug}/vocabulary-bank.md"
+    description: "Updated audit log section in the vocabulary bank"
+
+events:
+  emits:
+    - name: vocabulary-bank.audit_completed
+      description: "Emitted after audit completes with violation count and severity"

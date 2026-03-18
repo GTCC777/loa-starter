@@ -1,0 +1,46 @@
+# scripts/MANIFEST.yaml — Machine-readable tool declarations
+#
+# Lets agents discover what scripts are available, how to invoke them,
+# and what to expect back — without reading source code.
+
+scripts:
+
+  - name: compose-context
+    description: "Merge base cultural context (crypto-base.md) with named overlays into a single composed context file for the Observer lens"
+    entry: compose-context.sh
+    runtime: bash
+    args:
+      - name: PROJECT_ROOT
+        type: path
+        required: false
+        positional: true
+        default: "."
+        description: "Path to the project root"
+      - name: --overlays
+        type: string
+        required: false
+        default: "berachain,defi"
+        description: "Comma-separated overlay names to merge (e.g. 'berachain,defi')"
+    output:
+      format: text
+      fields:
+        output_path: "string — contexts/composed/cultural-context.md"
+    side_effects:
+      - "Writes contexts/composed/cultural-context.md (overwrites if exists)"
+    credentials: []
+    danger_level: safe
+
+  - name: validate-skills
+    description: "Validate all Observer skills have SKILL.md, are declared in construct.yaml, and have capabilities stanza in index.yaml"
+    entry: validate-skills.sh
+    runtime: bash
+    args: []
+    output:
+      format: text
+      fields:
+        checked: "integer — number of skill directories checked"
+        errors: "integer — number of validation errors found"
+        warnings: "integer — number of warnings (e.g. missing capabilities stanza)"
+    side_effects: []
+    credentials: []
+    danger_level: safe

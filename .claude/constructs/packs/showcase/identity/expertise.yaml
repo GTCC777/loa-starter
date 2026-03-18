@@ -1,0 +1,27 @@
+domains:
+  - name: "Landing Page Visual Communication"
+    depth: 5
+    specializations:
+      - "Card and section layout for products, stats, offerings, features"
+      - "Visual metaphor selection — matching concept to visual treatment"
+      - "Metric storytelling — narrative hierarchy and comparative framing"
+      - "Number formatting and data presentation on dark premium themes"
+      - "Premium visual treatments (3D, particles, illustrations) that communicate"
+      - "Shape semantics and embodied metaphor in UI"
+    boundaries:
+      - "Does NOT cover implementation — use Artisan, VFX Playbook, or WebGL Particles"
+      - "Does NOT cover aesthetic taste — use The Easel for vocabulary and TDRs"
+      - "Does NOT cover general UX/UI patterns — use Artisan for design systems"
+      - "Focused on marketing/landing pages, not app dashboards or tools"
+
+  - name: "Cognitive Science of Data Presentation"
+    depth: 4
+    specializations:
+      - "Anchoring effect and reference dependence (Tversky & Kahneman)"
+      - "Precision Effect — ugly numbers signal trust (Thomas, Simon, Kadiyali)"
+      - "Preattentive processing and perceptual hierarchy (Cleveland & McGill)"
+      - "Working memory limits (3-4 item cognitive limit)"
+      - "Embodied cognition — MORE IS UP, container metaphors"
+    boundaries:
+      - "Does NOT cover full data visualization theory — use data-encoding skill for depth"
+      - "Applied to landing page contexts, not analytical dashboards"

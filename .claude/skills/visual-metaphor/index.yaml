@@ -1,0 +1,17 @@
+slug: visual-metaphor
+name: Visual Metaphor
+description: |
+  Use this skill IF user needs to decide what visual goes inside a card —
+  what 3D scene, illustration, or visual treatment communicates the concept.
+  Covers: metaphor selection frameworks, concept-to-visual mapping, premium
+  treatments from Mercury/Stripe/Linear/Vercel patterns.
+version: 1.0.0
+triggers:
+  - "/showcase-visual"
+  - "what visual should this card have"
+  - "visual metaphor"
+  - "what should this card look like"
+capabilities:
+  model_tier: sonnet
+  danger_level: low
+  effort_hint: medium

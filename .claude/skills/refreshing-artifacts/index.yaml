@@ -1,0 +1,19 @@
+name: refreshing-artifacts
+slug: refreshing-artifacts
+version: 1.0.0
+description: Re-validate an artifact and update its confidence inputs. Routes to appropriate re-validation skill based on artifact type.
+entry: SKILL.md
+triggers:
+  - /refresh
+allowed-tools:
+  - Read
+  - Write
+  - Edit
+  - Glob
+  - Grep
+  - Bash
+capabilities:
+  model_tier: standard
+  danger_level: safe
+  effort_hint: medium
+  downgrade_allowed: false

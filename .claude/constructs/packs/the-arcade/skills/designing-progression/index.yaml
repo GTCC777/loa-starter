@@ -1,0 +1,26 @@
+slug: designing-progression
+name: "Designing Progression"
+description: |
+  Use this skill IF user needs to design progressive disclosure
+  or onboarding that teaches through play, not documentation.
+
+triggers:
+  - "design progression"
+  - "onboarding flow"
+  - "teach through play"
+  - "progressive disclosure"
+  - "first 5 minutes"
+  - "tutorial design"
+  - "information gating"
+
+capabilities:
+  model_tier: sonnet
+  danger_level: safe
+  effort_hint: large
+  downgrade_allowed: false
+  execution_hint: sequential
+  requires:
+    native_runtime: false
+    tool_calling: false
+    thinking_traces: true
+    vision: false

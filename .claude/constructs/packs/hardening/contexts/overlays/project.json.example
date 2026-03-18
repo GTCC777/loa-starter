@@ -1,0 +1,29 @@
+{
+  "project": {
+    "name": "your-project-name",
+    "repo_url": "https://github.com/org/repo",
+    "primary_branch": "main",
+    "description": "Brief project description"
+  },
+  "indexer": {
+    "type": "envio",
+    "config_path": "config.yaml",
+    "schema_path": "schema.graphql"
+  },
+  "monitoring": {
+    "sentry_enabled": false,
+    "sentry_project": null,
+    "health_check_url": null,
+    "ci_provider": "github-actions"
+  },
+  "conventions": {
+    "test_directory": "__tests__",
+    "test_pattern": "*.test.ts",
+    "source_directories": ["src", "lib", "app"],
+    "contract_call_patterns": ["writeContract", "simulateContract", "readContract"]
+  },
+  "team": {
+    "discord_channel": null,
+    "github_labels": ["bug", "regression", "hardening"]
+  }
+}

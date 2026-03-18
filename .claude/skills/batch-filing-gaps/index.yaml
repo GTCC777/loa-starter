@@ -1,0 +1,19 @@
+name: batch-filing-gaps
+slug: batch-filing-gaps
+version: 1.0.0
+description: Batch scan canvases for GAP sections, deduplicate, route to correct repos, draft issue bodies, and file confirmed issues.
+entry: SKILL.md
+triggers:
+  - /gap-to-issues
+allowed-tools:
+  - Read
+  - Write
+  - Glob
+  - Grep
+  - Edit
+  - Bash
+capabilities:
+  model_tier: standard
+  danger_level: moderate
+  effort_hint: heavy
+  downgrade_allowed: false

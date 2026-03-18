@@ -1,0 +1,8 @@
+# License tokens contain user identity — distribute via env or secret store
+.license.json
+
+# OS
+.DS_Store
+
+# Composed context output
+contexts/composed/

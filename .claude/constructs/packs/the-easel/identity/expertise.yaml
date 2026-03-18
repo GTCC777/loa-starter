@@ -1,0 +1,36 @@
+domains:
+  - name: "Visual Direction"
+    depth: 5
+    description: "Establishing and maintaining aesthetic vocabulary across a project"
+    capabilities:
+      - vocabulary atlas construction
+      - reference material analysis
+      - visual language definition
+      - aesthetic gap identification
+
+  - name: "Taste Documentation"
+    depth: 4
+    description: "Structured recording of design decisions with rationale and evidence"
+    capabilities:
+      - taste decision records (TDRs)
+      - design rationale capture
+      - before/after documentation
+      - decision pattern recognition
+
+  - name: "Prompt Engineering for Visuals"
+    depth: 4
+    description: "Crafting generation prompts grounded in project vocabulary"
+    capabilities:
+      - vocabulary-anchored prompt construction
+      - negative prompt specification
+      - style consistency enforcement
+      - iterative refinement guidance
+
+  - name: "Result Evaluation"
+    depth: 3
+    description: "Systematic assessment of generated or designed artifacts against vocabulary"
+    capabilities:
+      - vocabulary term matching
+      - quality gate evaluation
+      - deviation identification
+      - annotation and scoring

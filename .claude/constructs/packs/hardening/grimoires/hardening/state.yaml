@@ -1,0 +1,9 @@
+# Hardening construct state
+version: 1
+last_postmortem: PMR-2026-001
+last_triage: null
+last_regression_check: null
+pmr_count: 1
+open_actions: 7
+verified_actions: 0
+regression_count: 0

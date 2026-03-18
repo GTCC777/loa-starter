@@ -1,0 +1,24 @@
+slug: exploring-visuals
+name: "Exploring Visuals"
+description: |
+  Use this skill IF user needs vocabulary-grounded prompts for visual
+  exploration or wants to generate design direction imagery.
+
+triggers:
+  - "explore visuals"
+  - "visual exploration"
+  - "design prompts"
+  - "aesthetic direction"
+  - "visual references"
+
+capabilities:
+  model_tier: sonnet
+  danger_level: safe
+  effort_hint: medium
+  downgrade_allowed: true
+  execution_hint: sequential
+  requires:
+    native_runtime: false
+    tool_calling: false
+    thinking_traces: false
+    vision: false

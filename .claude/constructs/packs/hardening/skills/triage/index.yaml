@@ -1,0 +1,17 @@
+name: triage
+slug: triage
+version: 1.0.0
+description: Rapid severity assessment connecting user reports to affected code with blast radius estimate.
+entry: SKILL.md
+triggers:
+  - /triage
+allowed-tools:
+  - Read
+  - Glob
+  - Grep
+  - Bash
+capabilities:
+  model_tier: sonnet
+  danger_level: safe
+  effort_hint: medium
+  downgrade_allowed: true

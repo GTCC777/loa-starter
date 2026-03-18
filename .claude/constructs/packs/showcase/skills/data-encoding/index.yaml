@@ -1,0 +1,18 @@
+slug: data-encoding
+name: Data Encoding
+description: |
+  Use this skill IF user needs guidance on number formatting, data
+  presentation, or perceptual encoding for stats and metrics on landing
+  pages. Covers: precision vs compact notation, tabular numerals,
+  count-up animation, comparative anchoring, and the 3-Digit Rule.
+version: 1.0.0
+triggers:
+  - "/showcase-data"
+  - "how should I format this number"
+  - "data encoding"
+  - "number formatting"
+  - "stat presentation"
+capabilities:
+  model_tier: sonnet
+  danger_level: low
+  effort_hint: light

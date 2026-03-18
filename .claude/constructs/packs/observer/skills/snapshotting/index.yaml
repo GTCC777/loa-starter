@@ -1,0 +1,19 @@
+name: snapshotting
+slug: snapshotting
+version: 1.0.0
+description: Capture point-in-time MER (MiDi Experience Record) for a wallet — data state, visual screenshot, perception context, and decision metadata.
+entry: SKILL.md
+triggers:
+  - /snapshot
+allowed-tools:
+  - Read
+  - Write
+  - Glob
+  - Grep
+  - Edit
+  - Bash
+capabilities:
+  model_tier: standard
+  danger_level: moderate
+  effort_hint: heavy
+  downgrade_allowed: true

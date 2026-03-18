@@ -1,0 +1,108 @@
+schema_version: 3
+name: Vocabulary Bank
+slug: vocabulary-bank
+version: 0.1.0
+description: "Per-product vocabulary governance with tiered lexicons, register-aware channel mapping, and the Anchor-Space-Gravity philosophy. Structural constraint for consistent voice across channels and products."
+short_description: "Vocabulary governance — tiered lexicons, register-aware channels"
+long_description: |
+  A structural constraint for vocabulary governance across products and channels.
+
+  Every product has words that carry weight — earned through use, accumulated through gravity.
+  This construct provides the schema for managing those words: which are chain-standard (never rename),
+  which are world vocabulary (earned through discovery), and which are reserved (not yet deployed).
+
+  Based on research across 8 ecosystems (Riot, Bungie, Square Enix, CCP, Valve, Supergiant, Yuga Labs)
+  and grounded in the Anchor-Space-Gravity philosophy: material words stick, unfilled space creates
+  meaning, consistent use accumulates gravity.
+
+  Install it. Populate your vocabulary bank. Let Herald (or any comms construct) read it when drafting.
+author: 0xHoneyJar
+license: MIT
+type: skill-pack
+visibility: public
+tier: L2
+
+domain:
+  - communication
+  - voice-design
+  - content-governance
+
+expertise:
+  - vocabulary management
+  - voice register modulation
+  - channel-specific communication
+  - lore-in-operational-comms
+
+keywords:
+  - vocabulary
+  - voice
+  - register
+  - lore
+  - channel
+  - announcement
+  - copy
+  - tone
+  - lexicon
+
+skills:
+  - slug: auditing-vocabulary
+    path: skills/auditing-vocabulary
+  - slug: synthesizing-vocabulary
+    path: skills/synthesizing-vocabulary
+
+repository:
+  url: https://github.com/0xHoneyJar/construct-vocabulary-bank.git
+  homepage: https://constructs.network/constructs/vocabulary-bank
+
+identity:
+  persona: identity/persona.yaml
+  expertise: identity/expertise.yaml
+
+events:
+  emits:
+    - type: vocabulary-bank.audit_completed
+      description: "Emitted after a vocabulary audit completes. Contains violations found and severity."
+      data_schema:
+        product: string
+        violations: number
+        severity: string
+    - type: vocabulary-bank.vocabulary_synthesized
+      description: "Emitted after vocabulary is extracted from existing copy. Contains tier counts."
+      data_schema:
+        product: string
+        tier1_count: number
+        tier2_count: number
+        tier3_count: number
+  consumes: []
+
+hooks:
+  post_install: scripts/install.sh
+
+governs:
+  - herald
+  - social-oracle
+  - gtm-collective
+  - growthpages
+pack_dependencies: {}
+
+capabilities:
+  model_tier: sonnet
+  danger_level: safe
+  effort_hint: medium
+  downgrade_allowed: true
+  execution_hint: sequential
+  requires:
+    tool_calling: true
+    thinking_traces: false
+    vision: false
+
+workflow:
+  depth: light
+  gates:
+    review: skip
+    audit: skip
+    sprint: skip
+
+quick_start:
+  command: /audit-vocabulary
+  description: "Audit existing copy against the installed vocabulary bank"

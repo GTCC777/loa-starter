@@ -1,0 +1,15 @@
+slug: researching-showcase
+name: Researching Showcase
+description: |
+  Use this skill IF user wants to deep dive into any Showcase sub-domain —
+  visual metaphor patterns, layout techniques, data presentation, or shape
+  semantics. Wraps the k-hole construct for grounded research.
+version: 1.0.0
+triggers:
+  - "/showcase-research"
+  - "research visual patterns"
+  - "dig into card design"
+capabilities:
+  model_tier: opus
+  danger_level: low
+  effort_hint: heavy

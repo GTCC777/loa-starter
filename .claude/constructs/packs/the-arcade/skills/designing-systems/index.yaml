@@ -1,0 +1,26 @@
+slug: designing-systems
+name: "Designing Systems"
+description: |
+  Use this skill IF user needs to design economic, social, or mechanical
+  systems with core loops, sinks/faucets, and emergent behavior analysis.
+
+triggers:
+  - "design system"
+  - "core loop"
+  - "token economy"
+  - "incentive design"
+  - "sink and faucet"
+  - "reputation system"
+  - "economy design"
+
+capabilities:
+  model_tier: opus
+  danger_level: safe
+  effort_hint: large
+  downgrade_allowed: false
+  execution_hint: sequential
+  requires:
+    native_runtime: false
+    tool_calling: false
+    thinking_traces: true
+    vision: false

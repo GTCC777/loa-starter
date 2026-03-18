@@ -1,0 +1,24 @@
+slug: recording-taste
+name: "Recording Taste"
+description: |
+  Use this skill IF user needs to create or manage Taste Decision Records
+  (TDRs) to codify aesthetic choices.
+
+triggers:
+  - "record taste"
+  - "taste decision"
+  - "create TDR"
+  - "aesthetic decision"
+  - "codify taste"
+
+capabilities:
+  model_tier: sonnet
+  danger_level: safe
+  effort_hint: medium
+  downgrade_allowed: true
+  execution_hint: sequential
+  requires:
+    native_runtime: false
+    tool_calling: false
+    thinking_traces: false
+    vision: false

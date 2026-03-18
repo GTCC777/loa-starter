@@ -1,0 +1,25 @@
+slug: referencing-games
+name: "Referencing Games"
+description: |
+  Use this skill IF user needs structural game design parallels
+  for a non-game design problem. Maps game mechanics to product challenges.
+
+triggers:
+  - "game reference"
+  - "what game does this"
+  - "how did games solve"
+  - "design parallel"
+  - "like zelda"
+  - "like dark souls"
+
+capabilities:
+  model_tier: sonnet
+  danger_level: safe
+  effort_hint: medium
+  downgrade_allowed: true
+  execution_hint: sequential
+  requires:
+    native_runtime: false
+    tool_calling: false
+    thinking_traces: false
+    vision: false

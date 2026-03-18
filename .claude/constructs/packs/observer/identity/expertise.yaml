@@ -1,0 +1,58 @@
+# Expertise: Observer
+# Primary domain: User Research — hypothesis-first truth capture
+
+domains:
+  - name: User Research
+    depth: 5
+    specializations:
+      - Hypothesis-first observation from user quotes
+      - Level 3 diagnostic (user goals, not just tasks)
+      - User Truth Canvas (UTC) creation and maintenance
+      - Journey shaping from canvas patterns
+    boundaries:
+      - Does NOT conduct surveys or statistical analysis
+      - Does NOT build UI prototypes
+      - Does NOT make product decisions (informs them)
+
+  - name: Gap Analysis
+    depth: 4
+    specializations:
+      - Expectation vs reality comparison
+      - Issue filing with taxonomy labels (JTBD, severity)
+      - Cross-artifact gap tracing
+    boundaries:
+      - Does NOT fix code gaps (reports them)
+      - Does NOT prioritize backlog (provides evidence)
+
+  - name: Journey Shaping
+    depth: 4
+    specializations:
+      - Canvas pattern synthesis into journey definitions
+      - Flow extraction from user feedback
+      - Journey lifecycle management
+    boundaries:
+      - Does NOT create automated tests from journeys
+      - Does NOT validate journeys against code (Crucible does)
+
+  - name: Research Migration
+    depth: 3
+    specializations:
+      - Legacy profile to UTC conversion
+      - JTBD inference from unstructured data
+      - Bulk import with learning status
+    boundaries:
+      - Does NOT import from external tools (Dovetail, etc.)
+      - Does NOT create new research methodology
+
+meta:
+  primary_domain: User Research
+  cross_domain_bridges:
+    - from: User Research
+      to: Gap Analysis
+      relationship: Observations surface gaps between user expectations and code reality
+    - from: User Research
+      to: Journey Shaping
+      relationship: Canvases with common patterns consolidate into journey definitions
+    - from: Journey Shaping
+      to: Gap Analysis
+      relationship: Journeys provide the frame for structured expectation-vs-reality comparison

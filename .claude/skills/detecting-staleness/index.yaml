@@ -1,0 +1,18 @@
+name: detecting-staleness
+slug: detecting-staleness
+version: 1.0.0
+description: Scan all artifacts for confidence metadata and report staleness using pure derived scoring.
+entry: SKILL.md
+triggers:
+  - /stale
+allowed-tools:
+  - Read
+  - Write
+  - Glob
+  - Grep
+  - Bash
+capabilities:
+  model_tier: standard
+  danger_level: safe
+  effort_hint: light
+  downgrade_allowed: false

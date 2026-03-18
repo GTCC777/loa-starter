@@ -1,0 +1,104 @@
+schema_version: 3
+name: "The Easel"
+slug: "the-easel"
+version: "1.1.0"
+description: "Creative studio for aesthetic direction — vocabulary grounding, visual exploration, result capture, and taste decisions. Domain-agnostic: install and populate with your project's aesthetic vocabulary."
+short_description: "Aesthetic direction studio"
+author: "0xHoneyJar"
+license: "MIT"
+type: "skill-pack"
+visibility: public
+
+repository: https://github.com/0xHoneyJar/construct-the-easel.git
+
+skills:
+  - slug: grounding-creative
+    path: skills/grounding-creative
+  - slug: exploring-visuals
+    path: skills/exploring-visuals
+  - slug: capturing-results
+    path: skills/capturing-results
+  - slug: recording-taste
+    path: skills/recording-taste
+
+identity:
+  persona: identity/persona.yaml
+  expertise: identity/expertise.yaml
+
+domain:
+  - design
+  - aesthetics
+  - visual-direction
+
+expertise:
+  - vocabulary-driven design
+  - taste decision records
+  - visual exploration
+  - aesthetic direction
+
+golden_path:
+  commands:
+    - name: ground
+      description: "Review vocabulary and TDRs for a design area"
+      truename_map:
+        no_vocabulary: /grounding-creative
+        vocabulary_ready: /grounding-creative
+    - name: explore
+      description: "Generate visual prompts grounded in vocabulary"
+      truename_map:
+        grounded: /exploring-visuals
+    - name: capture
+      description: "Annotate generation results with vocabulary terms"
+      truename_map:
+        explored: /capturing-results
+    - name: record
+      description: "Create or update a Taste Decision Record"
+      truename_map:
+        captured: /recording-taste
+
+events:
+  emits:
+    - name: forge.easel.vocabulary_grounded
+      description: "Vocabulary atlas reviewed and gaps identified"
+    - name: forge.easel.taste_recorded
+      description: "New TDR created or updated"
+  consumes:
+    - name: forge.artisan.taste_inscribed
+      description: "Can ground visual exploration in Artisan taste tokens"
+
+composition_paths:
+  reads:
+    - grimoires/artisan/
+  writes:
+    - grimoires/the-easel/
+compose_with:
+  - slug: artisan
+    relationship: "Reads Artisan taste tokens to ground visual exploration; TDRs feed back into Artisan inscription"
+governed_by:
+  - slug: artisan
+    relationship: "Taste token governance — Easel TDRs must conform to Artisan-inscribed tokens"
+pack_dependencies:
+  optional:
+    - slug: artisan
+      reason: "Taste token handoff — Easel TDRs can inform Artisan inscribed tokens"
+
+capabilities:
+  model_tier: sonnet
+  danger_level: safe
+  effort_hint: medium
+  downgrade_allowed: true
+  execution_hint: parallel
+  requires:
+    tool_calling: true
+    thinking_traces: false
+    vision: true
+
+workflow:
+  depth: light
+  gates:
+    prd: skip
+    sdd: skip
+    sprint: skip
+    implement: required
+    review: visual
+    audit: skip

@@ -1,0 +1,18 @@
+name: harden
+slug: harden
+version: 1.0.0
+description: Generate defensive measure specifications from a PMR — test specs, types, error boundaries, checklists.
+entry: SKILL.md
+triggers:
+  - /harden
+allowed-tools:
+  - Read
+  - Write
+  - Glob
+  - Grep
+  - Edit
+capabilities:
+  model_tier: opus
+  danger_level: moderate
+  effort_hint: large
+  downgrade_allowed: false

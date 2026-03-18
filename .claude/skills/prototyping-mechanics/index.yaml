@@ -1,0 +1,25 @@
+slug: prototyping-mechanics
+name: "Prototyping Mechanics"
+description: |
+  Use this skill IF user needs to rapidly prototype a game mechanic
+  or interaction pattern to test how it feels before committing to implementation.
+
+triggers:
+  - "prototype mechanic"
+  - "test this feel"
+  - "does this work"
+  - "mechanic spec"
+  - "interaction prototype"
+  - "rapid prototype"
+
+capabilities:
+  model_tier: sonnet
+  danger_level: safe
+  effort_hint: medium
+  downgrade_allowed: true
+  execution_hint: sequential
+  requires:
+    native_runtime: false
+    tool_calling: true
+    thinking_traces: false
+    vision: false
